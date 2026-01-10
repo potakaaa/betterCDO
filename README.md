@@ -262,7 +262,6 @@ This template would not be possible without:
 - **[BetterSolano](https://github.com/BetterSolano/bettersolano)** - The original project this template is based on
 - **[Ramon Logan Jr.](https://github.com/BetterSolano)** - Original developer of BetterSolano
 - **[BetterGov.ph](https://bettergov.ph)** - The civic-tech initiative driving government transparency in the Philippines
-- **[LGU Solano](https://solano.gov.ph)** - For pioneering public data availability
 - All contributors and volunteers who dedicate their time to civic technology
 
 ## Data Sources
