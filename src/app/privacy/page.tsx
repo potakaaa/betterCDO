@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function PrivacyPage() {
-  const { lguName, getSiteTitle, getVolunteerEmail } = useSiteConfig();
+  const { getSiteTitle, getVolunteerEmail } = useSiteConfig();
   const siteTitle = getSiteTitle();
   const volunteerEmail = getVolunteerEmail();
 

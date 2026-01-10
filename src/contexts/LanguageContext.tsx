@@ -2,9 +2,6 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode, useMemo } from 'react';
 import { 
-  site, 
-  lguName, 
-  labels,
   getFullLocation,
   getSiteConfig,
   getLGUTypeLabels,
@@ -309,8 +306,8 @@ type Language = 'en' | 'fil' | 'ilo';
 
 interface LanguageContextType {
   language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: string, vars?: Record<string, string>) => string;
+  setLanguage: (_lang: Language) => void;
+  t: (_key: string, _vars?: Record<string, string>) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

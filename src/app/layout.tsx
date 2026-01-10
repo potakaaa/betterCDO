@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import React from 'react';
 import HotlineBar from '@/components/layout/HotlineBar';
 import Header from '@/components/layout/Header';
 import InfoBar from '@/components/layout/InfoBar';

@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "setup-lgu": "node scripts/setup-lgu.js"
+    "setup-lgu": "node scripts/setup-lgu.js",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "chart.js": "^4.5.1",

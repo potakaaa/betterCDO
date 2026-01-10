@@ -9,7 +9,6 @@ export default function ContactPage() {
     lguName, 
     hotlines, 
     formatPhoneLink,
-    getDeptPrefix,
   } = useSiteConfig();
 
   return (

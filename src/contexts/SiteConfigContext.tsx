@@ -10,7 +10,6 @@ import {
   HistoryConfig,
   StatisticsConfig,
   LGUTypeLabels,
-  LGUConfig,
 } from '@/types/config';
 import {
   getSiteConfig,
@@ -55,12 +54,12 @@ interface SiteConfigContextType {
 
   // Utility functions
   getSiteTitle: () => string;
-  getFullSiteTitle: (pageTitle?: string) => string;
+  getFullSiteTitle: (_pageTitle?: string) => string;
   getSiteDescription: () => string;
   getVolunteerEmail: () => string;
   getOpenGraphUrl: () => string;
   getMapEmbedUrl: () => string;
-  formatPhoneLink: (phone: string) => string;
+  formatPhoneLink: (_phone: string) => string;
 }
 
 const SiteConfigContext = createContext<SiteConfigContextType | undefined>(undefined);

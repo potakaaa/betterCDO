@@ -1,11 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useLanguage } from '@/contexts/LanguageContext';
 import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function SitemapPage() {
-  const { t } = useLanguage();
   const { lguName, site, labels } = useSiteConfig();
 
   return (

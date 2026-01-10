@@ -4,7 +4,7 @@ import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { site, lguName, labels, getVolunteerEmail } = useSiteConfig();
+  const { site, lguName, getVolunteerEmail } = useSiteConfig();
 
   const logoPath = site.logo?.white || '/assets/images/logo/logo-white.svg';
   const volunteerEmail = getVolunteerEmail();

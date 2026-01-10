@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Language, TranslationKeys } from '@/types';
+import { Language } from '@/types';
 import { translations } from '@/data/translations';
 
 const STORAGE_KEY = 'betterlgu-lang';

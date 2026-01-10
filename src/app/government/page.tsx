@@ -14,7 +14,6 @@ export default function GovernmentPage() {
     getLegislativeBody,
     getLegislativeMembers,
     getSubdivisionTypePlural,
-    getSubdivisionLeader,
     getDeptPrefix,
     formatPhoneLink,
   } = useSiteConfig();

@@ -6,8 +6,7 @@ import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function AccessibilityPage() {
   const { t } = useLanguage();
-  const { lguName, getSiteTitle, getVolunteerEmail } = useSiteConfig();
-  const siteTitle = getSiteTitle();
+  const { lguName, getVolunteerEmail } = useSiteConfig();
   const volunteerEmail = getVolunteerEmail();
 
   return (

@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -14,7 +15,7 @@ import {
     Legend,
     Filler,
 } from 'chart.js';
-import { Line, Pie, Doughnut, Bar } from 'react-chartjs-2';
+import { Line, Doughnut, Bar } from 'react-chartjs-2';
 
 // Register Chart.js components
 ChartJS.register(

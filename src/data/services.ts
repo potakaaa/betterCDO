@@ -1,4 +1,4 @@
-import { Service, ServiceCategory } from '@/types';
+import { ServiceCategory } from '@/types';
 
 export const serviceCategories: ServiceCategory[] = [
   { id: 'certificates', name: 'Certificates & Vital Records', description: 'Birth, death, marriage certificates, and other vital records.', icon: 'bi-file-earmark-text-fill' },

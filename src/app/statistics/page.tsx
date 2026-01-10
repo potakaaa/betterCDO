@@ -6,14 +6,12 @@ import {
   PopulationTrendsChart,
   PopulationDistributionChart,
   BarangayPopulationChart,
-  CMCIRankingsChart,
-  EconomicSectorsChart,
   KeyIndicatorsTrendChart
 } from '@/components/charts/Charts';
 import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function StatisticsPage() {
-  const { site, statistics, labels, lguName, fullLocation } = useSiteConfig();
+  const { statistics, labels, lguName, fullLocation } = useSiteConfig();
 
   useEffect(() => {
     // Animation on scroll

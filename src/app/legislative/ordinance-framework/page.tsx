@@ -22,7 +22,7 @@ const sampleOrdinances = [
 ];
 
 export default function OrdinanceFrameworkPage() {
-  const { lguName, labels, site } = useSiteConfig();
+  const { lguName, labels } = useSiteConfig();
 
   return (
     <>
