@@ -4,66 +4,74 @@ import Link from 'next/link';
 import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function ContactPage() {
-  const { 
-    site, 
-    lguName, 
-    hotlines, 
+  const {
+    site,
+    lguName,
+    hotlines,
     formatPhoneLink,
   } = useSiteConfig();
 
   return (
     <>
       {/* Breadcrumbs */}
-      <div className="container">
-        <nav className="breadcrumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <span aria-current="page">Contact</span>
+      <div className="container mx-auto px-4">
+        <nav className="py-4 text-sm text-gray-500" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-primary-600">Home</Link>
+          <span className="mx-2">/</span>
+          <span aria-current="page" className="text-gray-900">Contact</span>
         </nav>
       </div>
 
       {/* Page Header */}
-      <section className="page-header">
-        <div className="container">
-          <div className="page-header-content">
-            <span className="page-header-badge"><i className="bi bi-envelope-fill"></i> Contact</span>
-            <h1>Contact Us</h1>
-            <p className="page-header-desc">We&apos;re here to help. Reach out to us through any of these channels.</p>
+      <section className="bg-gradient-to-br from-primary-600 to-primary-700 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <i className="bi bi-envelope-fill"></i> Contact
+            </span>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Contact Us</h1>
+            <p className="text-lg text-white/90">We&apos;re here to help. Reach out to us through any of these channels.</p>
           </div>
         </div>
       </section>
 
       {/* Contact Information */}
-      <section className="section">
-        <div className="container">
-          <div className="grid grid-3" style={{ gap: 'var(--spacing-md)' }}>
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {site.contact.email && (
-              <a href={`mailto:${site.contact.email}`} className="contact-card">
-                <div className="contact-card-icon"><i className="bi bi-envelope-fill"></i></div>
-                <div className="contact-card-content">
-                  <h3>Email</h3>
-                  <p className="contact-card-value">{site.contact.email}</p>
-                  <span className="contact-card-note">We&apos;ll respond within 24 hours</span>
+              <a href={`mailto:${site.contact.email}`} className="group flex items-start gap-4 p-6 bg-white border border-gray-200 rounded-xl no-underline text-gray-800 transition-all duration-200 hover:border-primary-500 hover:shadow-lg">
+                <div className="w-12 h-12 flex items-center justify-center bg-primary-600 text-white rounded-xl text-xl shrink-0">
+                  <i className="bi bi-envelope-fill"></i>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-1">Email</h3>
+                  <p className="text-lg font-semibold text-gray-900 mb-1">{site.contact.email}</p>
+                  <span className="text-sm text-gray-500">We&apos;ll respond within 24 hours</span>
                 </div>
               </a>
             )}
             {site.contact.mobile && (
-              <a href={`tel:${formatPhoneLink(site.contact.mobile)}`} className="contact-card">
-                <div className="contact-card-icon"><i className="bi bi-phone-fill"></i></div>
-                <div className="contact-card-content">
-                  <h3>Mobile</h3>
-                  <p className="contact-card-value">{site.contact.mobile}</p>
-                  <span className="contact-card-note">Mon-Fri: 8:00 AM - 5:00 PM</span>
+              <a href={`tel:${formatPhoneLink(site.contact.mobile)}`} className="group flex items-start gap-4 p-6 bg-white border border-gray-200 rounded-xl no-underline text-gray-800 transition-all duration-200 hover:border-primary-500 hover:shadow-lg">
+                <div className="w-12 h-12 flex items-center justify-center bg-primary-600 text-white rounded-xl text-xl shrink-0">
+                  <i className="bi bi-phone-fill"></i>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-1">Mobile</h3>
+                  <p className="text-lg font-semibold text-gray-900 mb-1">{site.contact.mobile}</p>
+                  <span className="text-sm text-gray-500">Mon-Fri: 8:00 AM - 5:00 PM</span>
                 </div>
               </a>
             )}
             {site.contact.phone && (
-              <a href={`tel:${formatPhoneLink(site.contact.phone)}`} className="contact-card">
-                <div className="contact-card-icon"><i className="bi bi-telephone-fill"></i></div>
-                <div className="contact-card-content">
-                  <h3>Phone</h3>
-                  <p className="contact-card-value">{site.contact.phone}</p>
-                  <span className="contact-card-note">Mon-Fri: 8:00 AM - 5:00 PM</span>
+              <a href={`tel:${formatPhoneLink(site.contact.phone)}`} className="group flex items-start gap-4 p-6 bg-white border border-gray-200 rounded-xl no-underline text-gray-800 transition-all duration-200 hover:border-primary-500 hover:shadow-lg">
+                <div className="w-12 h-12 flex items-center justify-center bg-primary-600 text-white rounded-xl text-xl shrink-0">
+                  <i className="bi bi-telephone-fill"></i>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-1">Phone</h3>
+                  <p className="text-lg font-semibold text-gray-900 mb-1">{site.contact.phone}</p>
+                  <span className="text-sm text-gray-500">Mon-Fri: 8:00 AM - 5:00 PM</span>
                 </div>
               </a>
             )}
@@ -72,33 +80,41 @@ export default function ContactPage() {
       </section>
 
       {/* Office Hours */}
-      <section className="office-hours-section">
-        <div className="container">
-          <div className="office-hours-inner">
-            <div className="office-hours-header">
-              <i className="bi bi-clock-fill"></i>
-              <h2>Office Hours</h2>
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200 overflow-hidden">
+            <div className="flex items-center gap-3 p-6 border-b border-gray-200 bg-gray-50">
+              <i className="bi bi-clock-fill text-2xl text-primary-600"></i>
+              <h2 className="text-xl font-bold text-gray-900 m-0">Office Hours</h2>
             </div>
-            <div className="office-hours-schedule">
-              <div className="office-hours-item office-hours-item--open">
-                <span className="office-hours-day">Monday - Friday</span>
-                <span className="office-hours-time">8:00 AM - 5:00 PM</span>
-                <span className="office-hours-status"><i className="bi bi-check-circle-fill"></i> Open</span>
+            <div className="divide-y divide-gray-100">
+              <div className="flex items-center justify-between p-4 bg-green-50">
+                <span className="font-medium text-gray-900">Monday - Friday</span>
+                <span className="text-gray-600">8:00 AM - 5:00 PM</span>
+                <span className="inline-flex items-center gap-1 text-green-600 text-sm font-medium">
+                  <i className="bi bi-check-circle-fill"></i> Open
+                </span>
               </div>
-              <div className="office-hours-item office-hours-item--break">
-                <span className="office-hours-day">Lunch Break</span>
-                <span className="office-hours-time">12:00 PM - 1:00 PM</span>
-                <span className="office-hours-status"><i className="bi bi-pause-circle-fill"></i> Break</span>
+              <div className="flex items-center justify-between p-4 bg-yellow-50">
+                <span className="font-medium text-gray-900">Lunch Break</span>
+                <span className="text-gray-600">12:00 PM - 1:00 PM</span>
+                <span className="inline-flex items-center gap-1 text-yellow-600 text-sm font-medium">
+                  <i className="bi bi-pause-circle-fill"></i> Break
+                </span>
               </div>
-              <div className="office-hours-item office-hours-item--closed">
-                <span className="office-hours-day">Saturday &amp; Sunday</span>
-                <span className="office-hours-time">Closed</span>
-                <span className="office-hours-status"><i className="bi bi-x-circle-fill"></i> Closed</span>
+              <div className="flex items-center justify-between p-4 bg-red-50">
+                <span className="font-medium text-gray-900">Saturday &amp; Sunday</span>
+                <span className="text-gray-600">Closed</span>
+                <span className="inline-flex items-center gap-1 text-red-600 text-sm font-medium">
+                  <i className="bi bi-x-circle-fill"></i> Closed
+                </span>
               </div>
-              <div className="office-hours-item office-hours-item--closed">
-                <span className="office-hours-day">National &amp; Local Holidays</span>
-                <span className="office-hours-time">Closed</span>
-                <span className="office-hours-status"><i className="bi bi-x-circle-fill"></i> Closed</span>
+              <div className="flex items-center justify-between p-4 bg-red-50">
+                <span className="font-medium text-gray-900">National &amp; Local Holidays</span>
+                <span className="text-gray-600">Closed</span>
+                <span className="inline-flex items-center gap-1 text-red-600 text-sm font-medium">
+                  <i className="bi bi-x-circle-fill"></i> Closed
+                </span>
               </div>
             </div>
           </div>
@@ -107,35 +123,35 @@ export default function ContactPage() {
 
       {/* Emergency Hotlines */}
       {hotlines.emergency.some(h => h.number) && (
-        <section className="section">
-          <div className="container">
-            <div className="hotlines-header">
-              <div className="hotlines-title">
-                <span className="hotlines-badge"><i className="bi bi-exclamation-triangle-fill"></i> Emergency</span>
-                <h2>Emergency Hotlines</h2>
-              </div>
-              <p>For emergencies and inquiries, contact these numbers anytime.</p>
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-8">
+              <span className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-3">
+                <i className="bi bi-exclamation-triangle-fill"></i> Emergency
+              </span>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Emergency Hotlines</h2>
+              <p className="text-gray-500">For emergencies and inquiries, contact these numbers anytime.</p>
             </div>
-            <div className="hotlines-grid">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {hotlines.emergency.filter(h => h.number).map((hotline) => (
-                <a key={hotline.id} href={`tel:${formatPhoneLink(hotline.number)}`} className="hotline-card">
-                  <i className={`bi ${hotline.icon}`}></i>
-                  <span className="hotline-card-label">{hotline.name}</span>
-                  <span className="hotline-card-number">{hotline.number}</span>
+                <a key={hotline.id} href={`tel:${formatPhoneLink(hotline.number)}`} className="flex flex-col items-center gap-2 p-6 bg-red-50 border border-red-200 rounded-xl no-underline text-center transition-all duration-200 hover:border-red-400 hover:shadow-md">
+                  <i className={`bi ${hotline.icon} text-3xl text-red-600`}></i>
+                  <span className="text-sm font-medium text-gray-700">{hotline.name}</span>
+                  <span className="text-lg font-bold text-red-600">{hotline.number}</span>
                 </a>
               ))}
               {hotlines.government.filter(h => h.number).map((hotline) => (
-                <a key={hotline.id} href={`tel:${formatPhoneLink(hotline.number)}`} className="hotline-card">
-                  <i className={`bi ${hotline.icon}`}></i>
-                  <span className="hotline-card-label">{hotline.name}</span>
-                  <span className="hotline-card-number">{hotline.number}</span>
+                <a key={hotline.id} href={`tel:${formatPhoneLink(hotline.number)}`} className="flex flex-col items-center gap-2 p-6 bg-blue-50 border border-blue-200 rounded-xl no-underline text-center transition-all duration-200 hover:border-blue-400 hover:shadow-md">
+                  <i className={`bi ${hotline.icon} text-3xl text-blue-600`}></i>
+                  <span className="text-sm font-medium text-gray-700">{hotline.name}</span>
+                  <span className="text-lg font-bold text-blue-600">{hotline.number}</span>
                 </a>
               ))}
               {hotlines.utilities?.filter(h => h.number).map((hotline) => (
-                <a key={hotline.id} href={`tel:${formatPhoneLink(hotline.number)}`} className="hotline-card">
-                  <i className={`bi ${hotline.icon}`}></i>
-                  <span className="hotline-card-label">{hotline.name}</span>
-                  <span className="hotline-card-number">{hotline.number}</span>
+                <a key={hotline.id} href={`tel:${formatPhoneLink(hotline.number)}`} className="flex flex-col items-center gap-2 p-6 bg-gray-50 border border-gray-200 rounded-xl no-underline text-center transition-all duration-200 hover:border-gray-400 hover:shadow-md">
+                  <i className={`bi ${hotline.icon} text-3xl text-gray-600`}></i>
+                  <span className="text-sm font-medium text-gray-700">{hotline.name}</span>
+                  <span className="text-lg font-bold text-gray-600">{hotline.number}</span>
                 </a>
               ))}
             </div>
@@ -145,21 +161,21 @@ export default function ContactPage() {
 
       {/* Medical Emergency Hotlines */}
       {hotlines.medical.some(h => h.number) && (
-        <section className="section bg-alt">
-          <div className="container">
-            <div className="hotlines-header">
-              <div className="hotlines-title">
-                <span className="hotlines-badge hotlines-badge--medical"><i className="bi bi-hospital-fill"></i> Medical</span>
-                <h2>Medical Emergency Hotlines</h2>
-              </div>
-              <p>For medical emergencies and hospital inquiries.</p>
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-8">
+              <span className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-3">
+                <i className="bi bi-hospital-fill"></i> Medical
+              </span>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Medical Emergency Hotlines</h2>
+              <p className="text-gray-500">For medical emergencies and hospital inquiries.</p>
             </div>
-            <div className="hotlines-grid">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {hotlines.medical.filter(h => h.number).map((hotline) => (
-                <a key={hotline.id} href={`tel:${formatPhoneLink(hotline.number)}`} className="hotline-card hotline-card--medical">
-                  <i className={`bi ${hotline.icon}`}></i>
-                  <span className="hotline-card-label">{hotline.name}</span>
-                  <span className="hotline-card-number">{hotline.number}</span>
+                <a key={hotline.id} href={`tel:${formatPhoneLink(hotline.number)}`} className="flex flex-col items-center gap-2 p-6 bg-green-50 border border-green-200 rounded-xl no-underline text-center transition-all duration-200 hover:border-green-400 hover:shadow-md">
+                  <i className={`bi ${hotline.icon} text-3xl text-green-600`}></i>
+                  <span className="text-sm font-medium text-gray-700">{hotline.name}</span>
+                  <span className="text-lg font-bold text-green-600">{hotline.number}</span>
                 </a>
               ))}
             </div>
@@ -169,12 +185,12 @@ export default function ContactPage() {
 
       {/* No Hotlines Configured Message */}
       {!hotlines.emergency.some(h => h.number) && !hotlines.medical.some(h => h.number) && (
-        <section className="section">
-          <div className="container">
-            <div className="text-center" style={{ padding: 'var(--spacing-xl) 0' }}>
-              <i className="bi bi-telephone-fill" style={{ fontSize: '3rem', color: 'var(--color-text-light)', marginBottom: 'var(--spacing-md)', display: 'block' }}></i>
-              <h3>Hotlines Coming Soon</h3>
-              <p style={{ color: 'var(--color-text-light)' }}>
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-md mx-auto">
+              <i className="bi bi-telephone-fill text-5xl text-gray-300 mb-4 block"></i>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Hotlines Coming Soon</h3>
+              <p className="text-gray-500">
                 Emergency and medical hotlines for {lguName} will be added soon.
               </p>
             </div>

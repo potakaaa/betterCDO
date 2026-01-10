@@ -11,23 +11,35 @@ export default function History() {
   }
 
   return (
-    <section className="section history-section">
-      <div className="container">
-        <div className="home-stats-v2-header">
-          <h2><i className="bi bi-book" aria-hidden="true" /> Brief History of {lguName}</h2>
+    <section className="py-12 bg-white">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-xl font-bold text-gray-900 m-0 flex items-center gap-2">
+            <i className="bi bi-book text-primary-600" aria-hidden="true" /> Brief History of {lguName}
+          </h2>
         </div>
-        <div className="history-content">
-          <div className="history-timeline">
-            {history.timeline.map((item, index) => (
-              <div key={item.year || index} className="timeline-item" data-year={item.year}>
-                <div className="timeline-marker" />
-                <div className="timeline-content">
-                  <span className="timeline-year">{item.year}</span>
-                  <p>{item.description}</p>
-                </div>
+
+        {/* Timeline */}
+        <div className="relative pl-8 border-l-2 border-primary-200">
+          {history.timeline.map((item, index) => (
+            <div
+              key={item.year || index}
+              className="relative mb-8 last:mb-0"
+              data-year={item.year}
+            >
+              {/* Marker */}
+              <div className="absolute -left-[25px] top-1 w-4 h-4 bg-primary-600 rounded-full border-4 border-white shadow-sm" />
+
+              {/* Content */}
+              <div className="bg-gray-50 rounded-lg p-6 border border-gray-100">
+                <span className="inline-block bg-primary-100 text-primary-700 text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                  {item.year}
+                </span>
+                <p className="text-gray-700 m-0 leading-relaxed">{item.description}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

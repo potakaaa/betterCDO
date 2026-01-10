@@ -8,32 +8,58 @@ import { useLanguage } from '@/contexts/LanguageContext';
 function ServicesContent() {
   const { t } = useLanguage();
 
+  const categories = [
+    { href: '/services/certificates', icon: 'bi-file-earmark-text-fill', titleKey: 'cat-certificates', descKey: 'cat-certificates-desc' },
+    { href: '/services/business', icon: 'bi-shop', titleKey: 'cat-business', descKey: 'cat-business-desc' },
+    { href: '/services/social-services', icon: 'bi-people-fill', titleKey: 'cat-social', descKey: 'cat-social-desc' },
+    { href: '/services/health', icon: 'bi-heart-pulse-fill', titleKey: 'cat-health', descKey: 'cat-health-desc' },
+    { href: '/services/tax-payments', icon: 'bi-cash-coin', titleKey: 'cat-tax', descKey: 'cat-tax-desc' },
+    { href: '/services/agriculture', icon: 'bi-tree-fill', titleKey: 'cat-agriculture', descKey: 'cat-agriculture-desc' },
+    { href: '/services/infrastructure', icon: 'bi-building-fill-gear', titleKey: 'cat-infrastructure', descKey: 'cat-infrastructure-desc' },
+    { href: '/services/education', icon: 'bi-mortarboard-fill', titleKey: 'cat-education', descKey: 'cat-education-desc' },
+    { href: '/services/public-safety', icon: 'bi-shield-fill-check', titleKey: 'cat-safety', descKey: 'cat-safety-desc' },
+    { href: '/services/environment', icon: 'bi-globe-americas', titleKey: 'cat-environment', descKey: 'cat-environment-desc' },
+  ];
+
+  const lifeEvents = [
+    { href: '/services/business', icon: 'bi-shop', labelKey: 'life-starting-business' },
+    { href: '/services/certificates', icon: 'bi-heart', labelKey: 'life-getting-married' },
+    { href: '/services/certificates', icon: 'bi-emoji-smile', labelKey: 'life-having-baby' },
+    { href: '/services/social-services', icon: 'bi-wallet2', labelKey: 'life-financial-help' },
+    { href: '/services/social-services', icon: 'bi-person-badge', labelKey: 'life-senior' },
+    { href: '/services/social-services', icon: 'bi-universal-access', labelKey: 'life-pwd' },
+    { href: '/services/infrastructure', icon: 'bi-hammer', labelKey: 'life-building' },
+    { href: '/services/public-safety', icon: 'bi-question-circle', labelKey: 'life-trouble' },
+  ];
+
   return (
     <>
       {/* Breadcrumbs */}
-      <div className="container">
-        <nav className="breadcrumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <span aria-current="page">{t('nav-services')}</span>
+      <div className="container mx-auto px-4">
+        <nav className="py-4 text-sm text-gray-500" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-primary-600">Home</Link>
+          <span className="mx-2">/</span>
+          <span aria-current="page" className="text-gray-900">{t('nav-services')}</span>
         </nav>
       </div>
 
       {/* Page Header */}
-      <section className="page-header">
-        <div className="container">
-          <div className="page-header-content">
-            <span className="page-header-badge"><i className="bi bi-grid-fill"></i> {t('nav-services')}</span>
-            <h1>{t('services-title')}</h1>
-            <p className="page-header-desc">{t('services-subtitle')}</p>
+      <section className="bg-gradient-to-br from-primary-600 to-primary-700 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <i className="bi bi-grid-fill"></i> {t('nav-services')}
+            </span>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('services-title')}</h1>
+            <p className="text-lg text-white/90 mb-8">{t('services-subtitle')}</p>
             {/* Search Box */}
-            <div className="page-header-search">
-              <form className="search-form" role="search" onSubmit={(e) => e.preventDefault()}>
-                <div className="search-input-wrapper">
-                  <i className="bi bi-search search-icon"></i>
-                  <SearchAutocomplete 
+            <div className="max-w-xl mx-auto">
+              <form className="relative" role="search" onSubmit={(e) => e.preventDefault()}>
+                <div className="relative flex items-center">
+                  <i className="bi bi-search absolute left-4 text-gray-400"></i>
+                  <SearchAutocomplete
                     placeholder="Search services (e.g., birth certificate, business permit)"
-                    className="services-page-search"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl text-base border-0 shadow-lg focus:ring-2 focus:ring-primary-300"
                   />
                 </div>
               </form>
@@ -43,133 +69,49 @@ function ServicesContent() {
       </section>
 
       {/* Service Categories */}
-      <section className="section">
-        <div className="container">
-          <div className="grid grid-3">
-            <Link href="/services/certificates" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-file-earmark-text-fill"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-certificates')}</h3>
-                <p className="service-category-desc">{t('cat-certificates-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/business" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-shop"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-business')}</h3>
-                <p className="service-category-desc">{t('cat-business-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/social-services" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-people-fill"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-social')}</h3>
-                <p className="service-category-desc">{t('cat-social-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/health" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-heart-pulse-fill"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-health')}</h3>
-                <p className="service-category-desc">{t('cat-health-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/tax-payments" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-cash-coin"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-tax')}</h3>
-                <p className="service-category-desc">{t('cat-tax-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/agriculture" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-tree-fill"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-agriculture')}</h3>
-                <p className="service-category-desc">{t('cat-agriculture-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/infrastructure" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-building-fill-gear"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-infrastructure')}</h3>
-                <p className="service-category-desc">{t('cat-infrastructure-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/education" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-mortarboard-fill"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-education')}</h3>
-                <p className="service-category-desc">{t('cat-education-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/public-safety" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-shield-fill-check"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-safety')}</h3>
-                <p className="service-category-desc">{t('cat-safety-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
-            <Link href="/services/environment" className="service-category-card">
-              <div className="service-category-icon"><i className="bi bi-globe-americas"></i></div>
-              <div className="service-category-content">
-                <h3 className="service-category-title">{t('cat-environment')}</h3>
-                <p className="service-category-desc">{t('cat-environment-desc')}</p>
-                <span className="service-category-link">View Services <i className="bi bi-arrow-right"></i></span>
-              </div>
-            </Link>
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categories.map((cat) => (
+              <Link
+                key={cat.href}
+                href={cat.href}
+                className="group flex items-start gap-4 p-6 bg-white border border-gray-200 rounded-xl no-underline text-gray-800 transition-all duration-200 hover:border-primary-500 hover:shadow-lg"
+              >
+                <div className="w-14 h-14 flex items-center justify-center bg-primary-50 rounded-xl text-primary-600 text-2xl shrink-0 transition-all duration-200 group-hover:bg-primary-600 group-hover:text-white">
+                  <i className={`bi ${cat.icon}`}></i>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{t(cat.titleKey)}</h3>
+                  <p className="text-sm text-gray-500 mb-3">{t(cat.descKey)}</p>
+                  <span className="text-primary-600 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                    View Services <i className="bi bi-arrow-right"></i>
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Browse by Life Event */}
-      <section className="section life-events-section">
-        <div className="container">
-          <div className="text-center life-events-header">
-            <h2>{t('life-events-title')}</h2>
-            <p>{t('life-events-subtitle')}</p>
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('life-events-title')}</h2>
+            <p className="text-gray-500">{t('life-events-subtitle')}</p>
           </div>
-          <div className="grid grid-4 life-events-grid">
-            <Link href="/services/business" className="life-event-card">
-              <i className="bi bi-shop"></i>
-              <span>{t('life-starting-business')}</span>
-            </Link>
-            <Link href="/services/certificates" className="life-event-card">
-              <i className="bi bi-heart"></i>
-              <span>{t('life-getting-married')}</span>
-            </Link>
-            <Link href="/services/certificates" className="life-event-card">
-              <i className="bi bi-emoji-smile"></i>
-              <span>{t('life-having-baby')}</span>
-            </Link>
-            <Link href="/services/social-services" className="life-event-card">
-              <i className="bi bi-wallet2"></i>
-              <span>{t('life-financial-help')}</span>
-            </Link>
-            <Link href="/services/social-services" className="life-event-card">
-              <i className="bi bi-person-badge"></i>
-              <span>{t('life-senior')}</span>
-            </Link>
-            <Link href="/services/social-services" className="life-event-card">
-              <i className="bi bi-universal-access"></i>
-              <span>{t('life-pwd')}</span>
-            </Link>
-            <Link href="/services/infrastructure" className="life-event-card">
-              <i className="bi bi-hammer"></i>
-              <span>{t('life-building')}</span>
-            </Link>
-            <Link href="/services/public-safety" className="life-event-card">
-              <i className="bi bi-question-circle"></i>
-              <span>{t('life-trouble')}</span>
-            </Link>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {lifeEvents.map((event) => (
+              <Link
+                key={event.labelKey}
+                href={event.href}
+                className="flex flex-col items-center gap-3 p-6 bg-white border border-gray-200 rounded-xl no-underline text-gray-800 text-center transition-all duration-200 hover:border-primary-500 hover:shadow-md hover:-translate-y-1"
+              >
+                <i className={`bi ${event.icon} text-3xl text-primary-600`}></i>
+                <span className="text-sm font-medium">{t(event.labelKey)}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -179,7 +121,7 @@ function ServicesContent() {
 
 export default function ServicesPage() {
   return (
-    <Suspense fallback={<div className="container"><p>Loading...</p></div>}>
+    <Suspense fallback={<div className="container mx-auto px-4 py-12"><p>Loading...</p></div>}>
       <ServicesContent />
     </Suspense>
   );

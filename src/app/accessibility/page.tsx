@@ -9,129 +9,119 @@ export default function AccessibilityPage() {
   const { lguName, getVolunteerEmail } = useSiteConfig();
   const volunteerEmail = getVolunteerEmail();
 
+  const features = [
+    { icon: 'bi-keyboard', title: 'Keyboard Navigation', desc: 'All functionality available using only a keyboard.' },
+    { icon: 'bi-eye', title: 'Screen Reader Support', desc: 'Compatible with JAWS, NVDA, and VoiceOver.' },
+    { icon: 'bi-type', title: 'Text Alternatives', desc: 'All images have descriptive alt text.' },
+    { icon: 'bi-palette', title: 'Color Contrast', desc: 'Meets WCAG AA contrast requirements.' },
+    { icon: 'bi-phone', title: 'Responsive Design', desc: 'Works on all devices and screen sizes.' },
+    { icon: 'bi-hourglass-split', title: 'No Time Limits', desc: 'No time limits on reading or interacting.' },
+  ];
+
   return (
     <>
-      <link rel="stylesheet" href="/assets/css/accessibility.css" />
-      
       {/* Breadcrumbs */}
-      <div className="container">
-        <nav className="breadcrumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <span aria-current="page">Accessibility</span>
+      <div className="container mx-auto px-4">
+        <nav className="py-4 text-sm text-gray-500" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-primary-600">Home</Link>
+          <span className="mx-2">/</span>
+          <span aria-current="page" className="text-gray-900">Accessibility</span>
         </nav>
       </div>
 
       {/* Page Header */}
-      <section className="page-header">
-        <div className="container">
-          <div className="page-header-content">
-            <span className="page-header-badge"><i className="bi bi-universal-access"></i> Accessibility</span>
-            <h1>{t('access-title') || 'Accessibility Statement'}</h1>
-            <p className="page-header-desc">{t('access-subtitle') || 'Our commitment to digital accessibility for all citizens'}</p>
+      <section className="bg-gradient-to-br from-primary-600 to-primary-700 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <i className="bi bi-universal-access"></i> Accessibility
+            </span>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('access-title') || 'Accessibility Statement'}</h1>
+            <p className="text-lg text-white/90">{t('access-subtitle') || 'Our commitment to digital accessibility for all citizens'}</p>
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="a11y-container">
+      {/* Content */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto space-y-8">
             {/* Conformance Badge */}
-            <div className="a11y-badge-section">
-              <div className="a11y-conformance-badge">
-                <i className="bi bi-check-circle-fill"></i>
+            <div className="flex justify-center">
+              <div className="inline-flex items-center gap-4 bg-green-50 border border-green-200 px-6 py-4 rounded-xl">
+                <i className="bi bi-check-circle-fill text-3xl text-green-600"></i>
                 <div>
-                  <span className="a11y-badge-label">WCAG 2.1 Level AA</span>
-                  <span className="a11y-badge-text">Conformant</span>
+                  <span className="block text-xs font-semibold text-green-700 uppercase tracking-wide">WCAG 2.1 Level AA</span>
+                  <span className="block text-lg font-bold text-green-800">Conformant</span>
                 </div>
               </div>
             </div>
 
-            {/* Commitment Section */}
-            <div className="a11y-section">
-              <h2>{t('access-commitment') || 'Our Commitment'}</h2>
-              <p>Better {lguName} is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
+            {/* Commitment */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">{t('access-commitment') || 'Our Commitment'}</h2>
+              <p className="text-gray-600 leading-relaxed">Better {lguName} is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
             </div>
 
             {/* Features Grid */}
-            <div className="a11y-section">
-              <h2>{t('access-features') || 'Accessibility Features'}</h2>
-              <div className="a11y-features-grid">
-                <div className="a11y-feature">
-                  <i className="bi bi-keyboard"></i>
-                  <h3>Keyboard Navigation</h3>
-                  <p>All functionality available using only a keyboard.</p>
-                </div>
-                <div className="a11y-feature">
-                  <i className="bi bi-eye"></i>
-                  <h3>Screen Reader Support</h3>
-                  <p>Compatible with JAWS, NVDA, and VoiceOver.</p>
-                </div>
-                <div className="a11y-feature">
-                  <i className="bi bi-type"></i>
-                  <h3>Text Alternatives</h3>
-                  <p>All images have descriptive alt text.</p>
-                </div>
-                <div className="a11y-feature">
-                  <i className="bi bi-palette"></i>
-                  <h3>Color Contrast</h3>
-                  <p>Meets WCAG AA contrast requirements.</p>
-                </div>
-                <div className="a11y-feature">
-                  <i className="bi bi-phone"></i>
-                  <h3>Responsive Design</h3>
-                  <p>Works on all devices and screen sizes.</p>
-                </div>
-                <div className="a11y-feature">
-                  <i className="bi bi-hourglass-split"></i>
-                  <h3>No Time Limits</h3>
-                  <p>No time limits on reading or interacting.</p>
-                </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-6">{t('access-features') || 'Accessibility Features'}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {features.map((feature, index) => (
+                  <div key={index} className="text-center p-4">
+                    <i className={`bi ${feature.icon} text-3xl text-primary-600 mb-3 block`}></i>
+                    <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                    <p className="text-sm text-gray-500">{feature.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Known Limitations */}
-            <div className="a11y-section">
-              <h2>{t('access-limitations') || 'Known Limitations'}</h2>
-              <ul className="a11y-list">
-                <li><i className="bi bi-exclamation-circle"></i> Some PDF documents may not be fully accessible to screen readers</li>
-                <li><i className="bi bi-exclamation-circle"></i> Some third-party embedded content may have accessibility issues</li>
+            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">{t('access-limitations') || 'Known Limitations'}</h2>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3 text-gray-600">
+                  <i className="bi bi-exclamation-circle text-yellow-500 mt-0.5"></i>
+                  <span>Some PDF documents may not be fully accessible to screen readers</span>
+                </li>
+                <li className="flex items-start gap-3 text-gray-600">
+                  <i className="bi bi-exclamation-circle text-yellow-500 mt-0.5"></i>
+                  <span>Some third-party embedded content may have accessibility issues</span>
+                </li>
               </ul>
             </div>
 
             {/* Alternative Access */}
-            <div className="a11y-section">
-              <h2>{t('access-alternative') || 'Alternative Access'}</h2>
-              <p>If you encounter difficulty accessing any information, contact us:</p>
-              <div className="a11y-contact-grid">
-                <a href={`mailto:${volunteerEmail}`} className="a11y-contact-item">
-                  <i className="bi bi-envelope-fill"></i>
-                  <span>{volunteerEmail}</span>
-                </a>
-              </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">{t('access-alternative') || 'Alternative Access'}</h2>
+              <p className="text-gray-600 mb-4">If you encounter difficulty accessing any information, contact us:</p>
+              <a href={`mailto:${volunteerEmail}`} className="inline-flex items-center gap-3 p-4 bg-primary-50 border border-primary-200 rounded-xl text-primary-700 font-medium hover:bg-primary-100 transition-colors">
+                <i className="bi bi-envelope-fill text-xl"></i>
+                <span>{volunteerEmail}</span>
+              </a>
             </div>
 
-            {/* Technical Info */}
-            <div className="a11y-section">
-              <h2>{t('access-technical') || 'Technical Specifications'}</h2>
-              <div className="a11y-tech-tags">
-                <span className="a11y-tag">HTML5</span>
-                <span className="a11y-tag">CSS3</span>
-                <span className="a11y-tag">JavaScript</span>
-                <span className="a11y-tag">ARIA</span>
+            {/* Technical Specs */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">{t('access-technical') || 'Technical Specifications'}</h2>
+              <div className="flex flex-wrap gap-2">
+                {['HTML5', 'CSS3', 'JavaScript', 'ARIA'].map(tag => (
+                  <span key={tag} className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">{tag}</span>
+                ))}
               </div>
             </div>
 
             {/* Promise Card */}
-            <div className="a11y-promise">
-              <i className="bi bi-heart-fill"></i>
+            <div className="bg-primary-50 border border-primary-200 rounded-2xl p-8 flex items-start gap-4">
+              <i className="bi bi-heart-fill text-3xl text-primary-600 shrink-0"></i>
               <div>
-                <h3>{t('access-promise') || 'Our Promise'}</h3>
-                <p>Better {lguName} is committed to ensuring that our digital services are accessible to all citizens, regardless of ability. We view accessibility not as a feature, but as a fundamental right.</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{t('access-promise') || 'Our Promise'}</h3>
+                <p className="text-gray-600">Better {lguName} is committed to ensuring that our digital services are accessible to all citizens, regardless of ability. We view accessibility not as a feature, but as a fundamental right.</p>
               </div>
             </div>
 
-            <p className="a11y-date">Last updated: November 29, 2025</p>
+            <p className="text-sm text-gray-400 text-center">Last updated: November 29, 2025</p>
           </div>
         </div>
       </section>

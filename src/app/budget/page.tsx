@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { IncomeSourcesChart, ExpenditureChart } from '@/components/charts/Charts';
 import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
@@ -51,153 +51,165 @@ export default function BudgetPage() {
   const currentData = budgetData[activeQuarter];
   const { lguName, fullLocation, labels } = useSiteConfig();
 
-  useEffect(() => {
-    // Animation on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
-      <link rel="stylesheet" href="/assets/css/transparency-v2.css" />
-      
       {/* Breadcrumbs */}
-      <div className="container">
-        <nav className="breadcrumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <span aria-current="page">Budget &amp; Transparency</span>
+      <div className="container mx-auto px-4">
+        <nav className="py-4 text-sm text-gray-500" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-primary-600">Home</Link>
+          <span className="mx-2">/</span>
+          <span aria-current="page" className="text-gray-900">Budget &amp; Transparency</span>
         </nav>
       </div>
 
       {/* Hero Section */}
-      <section className="trans-hero-v2">
-        <div className="container">
-          <div className="trans-hero-content-v2">
-            <span className="trans-hero-badge-v2"><i className="bi bi-shield-check"></i> Financial Transparency</span>
-            <h1>Budget &amp; Financial Transparency</h1>
-            <p>Tracking {labels.lguTypeLabel.toLowerCase()} finances and projects for accountability</p>
+      <section className="bg-gradient-to-br from-primary-600 to-primary-700 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <i className="bi bi-shield-check"></i> Financial Transparency
+            </span>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Budget &amp; Financial Transparency</h1>
+            <p className="text-lg text-white/90">Tracking {labels.lguTypeLabel.toLowerCase()} finances and projects for accountability</p>
           </div>
         </div>
       </section>
 
       {/* SRE Section */}
-      <section className="sre-section-v2 animate-on-scroll">
-        <div className="container">
-          <div className="sre-header-v2">
-            <div className="sre-title-group">
-              <span className="sre-label"><i className="bi bi-graph-up-arrow"></i> Financial Report</span>
-              <h2>Statement of Receipts &amp; Expenditures</h2>
-              <p>FY 2025 quarterly financial performance</p>
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+            <div>
+              <span className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium mb-2">
+                <i className="bi bi-graph-up-arrow"></i> Financial Report
+              </span>
+              <h2 className="text-2xl font-bold text-gray-900">Statement of Receipts &amp; Expenditures</h2>
+              <p className="text-gray-500">FY 2025 quarterly financial performance</p>
             </div>
-            <div className="sre-period-toggle" aria-label="Select fiscal quarter">
-              <button 
-                type="button" 
-                className={`sre-period-btn ${activeQuarter === 'q1' ? 'active' : ''}`}
+            <div className="flex gap-2">
+              <button
+                type="button"
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${activeQuarter === 'q1' ? 'bg-primary-600 text-white' : 'bg-white border border-gray-200 text-gray-700 hover:border-primary-500'}`}
                 onClick={() => setActiveQuarter('q1')}
               >
-                <span className="sre-period-q">Q1</span>
-                <span className="sre-period-range">Jan - Mar</span>
+                <span className="font-bold">Q1</span> <span className="text-sm opacity-75">Jan - Mar</span>
               </button>
-              <button 
-                type="button" 
-                className={`sre-period-btn ${activeQuarter === 'q2' ? 'active' : ''}`}
+              <button
+                type="button"
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${activeQuarter === 'q2' ? 'bg-primary-600 text-white' : 'bg-white border border-gray-200 text-gray-700 hover:border-primary-500'}`}
                 onClick={() => setActiveQuarter('q2')}
               >
-                <span className="sre-period-q">Q2</span>
-                <span className="sre-period-range">Apr - Jun</span>
+                <span className="font-bold">Q2</span> <span className="text-sm opacity-75">Apr - Jun</span>
               </button>
             </div>
           </div>
 
-          <div className="sre-metrics-row">
-            <div className="sre-metric-card sre-metric-income">
-              <div className="sre-metric-icon"><i className="bi bi-arrow-down-circle"></i></div>
-              <div className="sre-metric-data">
-                <span className="sre-metric-value" id="sre-total-income">{currentData.totalIncome}</span>
-                <span className="sre-metric-label">Total Income</span>
+          {/* Metrics */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 flex items-center justify-center bg-green-100 text-green-600 rounded-lg">
+                  <i className="bi bi-arrow-down-circle text-xl"></i>
+                </div>
+                <div>
+                  <span className="block text-2xl font-bold text-green-700">{currentData.totalIncome}</span>
+                  <span className="text-sm text-green-600">Total Income</span>
+                </div>
               </div>
             </div>
-            <div className="sre-metric-card sre-metric-expense">
-              <div className="sre-metric-icon"><i className="bi bi-arrow-up-circle"></i></div>
-              <div className="sre-metric-data">
-                <span className="sre-metric-value" id="sre-total-expense">{currentData.totalExpense}</span>
-                <span className="sre-metric-label">Total Expenditures</span>
+            <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 flex items-center justify-center bg-red-100 text-red-600 rounded-lg">
+                  <i className="bi bi-arrow-up-circle text-xl"></i>
+                </div>
+                <div>
+                  <span className="block text-2xl font-bold text-red-700">{currentData.totalExpense}</span>
+                  <span className="text-sm text-red-600">Total Expenditures</span>
+                </div>
               </div>
             </div>
-            <div className="sre-metric-card sre-metric-net">
-              <div className="sre-metric-icon"><i className="bi bi-plus-slash-minus"></i></div>
-              <div className="sre-metric-data">
-                <span className="sre-metric-value" id="sre-net-income">{currentData.netIncome}</span>
-                <span className="sre-metric-label">Net Operating Income</span>
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-600 rounded-lg">
+                  <i className="bi bi-plus-slash-minus text-xl"></i>
+                </div>
+                <div>
+                  <span className="block text-2xl font-bold text-blue-700">{currentData.netIncome}</span>
+                  <span className="text-sm text-blue-600">Net Operating Income</span>
+                </div>
               </div>
             </div>
-            <div className="sre-metric-card sre-metric-balance">
-              <div className="sre-metric-icon"><i className="bi bi-wallet2"></i></div>
-              <div className="sre-metric-data">
-                <span className="sre-metric-value" id="sre-fund-balance">{currentData.fundBalance}</span>
-                <span className="sre-metric-label">Fund Balance (End)</span>
+            <div className="bg-purple-50 border border-purple-200 rounded-xl p-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 flex items-center justify-center bg-purple-100 text-purple-600 rounded-lg">
+                  <i className="bi bi-wallet2 text-xl"></i>
+                </div>
+                <div>
+                  <span className="block text-2xl font-bold text-purple-700">{currentData.fundBalance}</span>
+                  <span className="text-sm text-purple-600">Fund Balance (End)</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="sre-breakdown-v2">
-            <div className="sre-breakdown-panel">
-              <div className="sre-panel-header">
-                <h3><i className="bi bi-pie-chart"></i> Income Sources</h3>
+          {/* Breakdown Panels */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            {/* Income Sources */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+              <div className="p-6 border-b border-gray-200 bg-gray-50">
+                <h3 className="font-semibold text-gray-900 flex items-center gap-2">
+                  <i className="bi bi-pie-chart text-primary-600"></i> Income Sources
+                </h3>
               </div>
-              <div className="sre-panel-body">
-                <div className="sre-chart-container">
-                  <IncomeSourcesChart 
-                    localValue={currentData.income.local.value} 
+              <div className="p-6">
+                <div className="h-48 mb-4">
+                  <IncomeSourcesChart
+                    localValue={currentData.income.local.value}
                     externalValue={currentData.income.external.value}
                     totalIncome={currentData.totalIncomeValue}
                   />
                 </div>
-                <div className="sre-breakdown-list">
-                  <div className="sre-breakdown-item" data-type="local">
-                    <span className="sre-item-indicator sre-indicator-local"></span>
-                    <div className="sre-item-info">
-                      <span className="sre-item-name">Local Sources</span>
-                      <span className="sre-item-detail">Tax &amp; Non-Tax Revenue</span>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                      <div>
+                        <span className="font-medium text-gray-900">Local Sources</span>
+                        <span className="block text-xs text-gray-500">Tax & Non-Tax Revenue</span>
+                      </div>
                     </div>
-                    <div className="sre-item-values">
-                      <span className="sre-item-amount" id="sre-income-local">{currentData.income.local.amount}</span>
-                      <span className="sre-item-pct" id="sre-income-local-pct">{currentData.income.local.pct}</span>
+                    <div className="text-right">
+                      <span className="font-semibold text-gray-900">{currentData.income.local.amount}</span>
+                      <span className="block text-xs text-gray-500">{currentData.income.local.pct}</span>
                     </div>
                   </div>
-                  <div className="sre-breakdown-item" data-type="external">
-                    <span className="sre-item-indicator sre-indicator-external"></span>
-                    <div className="sre-item-info">
-                      <span className="sre-item-name">External Sources</span>
-                      <span className="sre-item-detail">National Tax Allotment</span>
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
+                      <div>
+                        <span className="font-medium text-gray-900">External Sources</span>
+                        <span className="block text-xs text-gray-500">National Tax Allotment</span>
+                      </div>
                     </div>
-                    <div className="sre-item-values">
-                      <span className="sre-item-amount" id="sre-income-external">{currentData.income.external.amount}</span>
-                      <span className="sre-item-pct" id="sre-income-external-pct">{currentData.income.external.pct}</span>
+                    <div className="text-right">
+                      <span className="font-semibold text-gray-900">{currentData.income.external.amount}</span>
+                      <span className="block text-xs text-gray-500">{currentData.income.external.pct}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="sre-breakdown-panel">
-              <div className="sre-panel-header">
-                <h3><i className="bi bi-bar-chart"></i> Expenditure Allocation</h3>
+
+            {/* Expenditure Allocation */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+              <div className="p-6 border-b border-gray-200 bg-gray-50">
+                <h3 className="font-semibold text-gray-900 flex items-center gap-2">
+                  <i className="bi bi-bar-chart text-primary-600"></i> Expenditure Allocation
+                </h3>
               </div>
-              <div className="sre-panel-body">
-                <div className="sre-chart-container">
-                  <ExpenditureChart 
+              <div className="p-6">
+                <div className="h-48 mb-4">
+                  <ExpenditureChart
                     gpsValue={currentData.expenditure.gps.value}
                     socialValue={currentData.expenditure.social.value}
                     economicValue={currentData.expenditure.economic.value}
@@ -205,49 +217,57 @@ export default function BudgetPage() {
                     totalExpense={currentData.totalExpenseValue}
                   />
                 </div>
-                <div className="sre-breakdown-list">
-                  <div className="sre-breakdown-item" data-type="gps">
-                    <span className="sre-item-indicator sre-indicator-gps"></span>
-                    <div className="sre-item-info">
-                      <span className="sre-item-name">General Public Services</span>
-                      <span className="sre-item-detail">Administration &amp; Operations</span>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <span className="w-3 h-3 bg-indigo-500 rounded-full"></span>
+                      <div>
+                        <span className="font-medium text-gray-900">General Public Services</span>
+                        <span className="block text-xs text-gray-500">Administration & Operations</span>
+                      </div>
                     </div>
-                    <div className="sre-item-values">
-                      <span className="sre-item-amount" id="sre-exp-gps">{currentData.expenditure.gps.amount}</span>
-                      <span className="sre-item-pct" id="sre-exp-gps-pct">{currentData.expenditure.gps.pct}</span>
-                    </div>
-                  </div>
-                  <div className="sre-breakdown-item" data-type="social">
-                    <span className="sre-item-indicator sre-indicator-social"></span>
-                    <div className="sre-item-info">
-                      <span className="sre-item-name">Social Services</span>
-                      <span className="sre-item-detail">Health, Education, Welfare</span>
-                    </div>
-                    <div className="sre-item-values">
-                      <span className="sre-item-amount" id="sre-exp-social">{currentData.expenditure.social.amount}</span>
-                      <span className="sre-item-pct" id="sre-exp-social-pct">{currentData.expenditure.social.pct}</span>
+                    <div className="text-right">
+                      <span className="font-semibold text-gray-900">{currentData.expenditure.gps.amount}</span>
+                      <span className="block text-xs text-gray-500">{currentData.expenditure.gps.pct}</span>
                     </div>
                   </div>
-                  <div className="sre-breakdown-item" data-type="economic">
-                    <span className="sre-item-indicator sre-indicator-economic"></span>
-                    <div className="sre-item-info">
-                      <span className="sre-item-name">Economic Services</span>
-                      <span className="sre-item-detail">Infrastructure &amp; Development</span>
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <span className="w-3 h-3 bg-orange-500 rounded-full"></span>
+                      <div>
+                        <span className="font-medium text-gray-900">Social Services</span>
+                        <span className="block text-xs text-gray-500">Health, Education, Welfare</span>
+                      </div>
                     </div>
-                    <div className="sre-item-values">
-                      <span className="sre-item-amount" id="sre-exp-economic">{currentData.expenditure.economic.amount}</span>
-                      <span className="sre-item-pct" id="sre-exp-economic-pct">{currentData.expenditure.economic.pct}</span>
+                    <div className="text-right">
+                      <span className="font-semibold text-gray-900">{currentData.expenditure.social.amount}</span>
+                      <span className="block text-xs text-gray-500">{currentData.expenditure.social.pct}</span>
                     </div>
                   </div>
-                  <div className="sre-breakdown-item" data-type="debt">
-                    <span className="sre-item-indicator sre-indicator-debt"></span>
-                    <div className="sre-item-info">
-                      <span className="sre-item-name">Debt Service</span>
-                      <span className="sre-item-detail">Interest &amp; Charges</span>
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                      <div>
+                        <span className="font-medium text-gray-900">Economic Services</span>
+                        <span className="block text-xs text-gray-500">Infrastructure & Development</span>
+                      </div>
                     </div>
-                    <div className="sre-item-values">
-                      <span className="sre-item-amount" id="sre-exp-debt">{currentData.expenditure.debt.amount}</span>
-                      <span className="sre-item-pct" id="sre-exp-debt-pct">{currentData.expenditure.debt.pct}</span>
+                    <div className="text-right">
+                      <span className="font-semibold text-gray-900">{currentData.expenditure.economic.amount}</span>
+                      <span className="block text-xs text-gray-500">{currentData.expenditure.economic.pct}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <span className="w-3 h-3 bg-gray-500 rounded-full"></span>
+                      <div>
+                        <span className="font-medium text-gray-900">Debt Service</span>
+                        <span className="block text-xs text-gray-500">Interest & Charges</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-semibold text-gray-900">{currentData.expenditure.debt.amount}</span>
+                      <span className="block text-xs text-gray-500">{currentData.expenditure.debt.pct}</span>
                     </div>
                   </div>
                 </div>
@@ -255,67 +275,80 @@ export default function BudgetPage() {
             </div>
           </div>
 
-          <p className="sre-source"><i className="bi bi-info-circle"></i> Source: <a href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer">Bureau of Local Government Finance (BLGF)</a> — Update with your LGU&apos;s actual financial data</p>
+          <p className="text-sm text-gray-500 flex items-center gap-2">
+            <i className="bi bi-info-circle"></i>
+            Source: <a href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Bureau of Local Government Finance (BLGF)</a> — Update with your LGU&apos;s actual financial data
+          </p>
         </div>
       </section>
 
       {/* Infrastructure Section */}
-      <section className="infra-section-v5 animate-on-scroll">
-        <div className="container">
-          <div className="infra-header-v5">
-            <span className="infra-label-v5"><i className="bi bi-building-gear"></i> Public Works</span>
-            <h2>Infrastructure Investments</h2>
-            <p>Major development projects serving the community</p>
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="mb-8">
+            <span className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium mb-2">
+              <i className="bi bi-building-gear"></i> Public Works
+            </span>
+            <h2 className="text-2xl font-bold text-gray-900">Infrastructure Investments</h2>
+            <p className="text-gray-500">Major development projects serving the community</p>
           </div>
 
-          {/* Sample Infrastructure Projects - Replace with actual projects */}
-          <div className="infra-project-v5">
-            <div className="infra-project-main">
-              <div className="infra-project-tags">
-                <span className="infra-tag-year">2024</span>
-                <span className="infra-tag-category"><i className="bi bi-water"></i> Flood Control</span>
+          {/* Sample Project */}
+          <div className="bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
+            <div className="p-6 border-b border-gray-200">
+              <div className="flex flex-wrap gap-2 mb-3">
+                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">2024</span>
+                <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+                  <i className="bi bi-water"></i> Flood Control
+                </span>
               </div>
-              <h3>Sample Flood Control Project</h3>
-              <p className="infra-location"><i className="bi bi-geo-alt"></i> {fullLocation}</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-1">Sample Flood Control Project</h3>
+              <p className="text-sm text-gray-500 flex items-center gap-1">
+                <i className="bi bi-geo-alt"></i> {fullLocation}
+              </p>
             </div>
-            <div className="infra-project-details">
-              <div className="infra-detail-row">
-                <div className="infra-detail-col">
-                  <span className="infra-detail-label">Type of Work</span>
-                  <span className="infra-detail-value">Construction of Flood Mitigation Structure</span>
-                </div>
-                <div className="infra-detail-col">
-                  <span className="infra-detail-label">Contractor</span>
-                  <span className="infra-detail-value">Sample Contractor Inc.</span>
-                </div>
-                <div className="infra-detail-col infra-detail-cost">
-                  <span className="infra-detail-label">Contract Cost</span>
-                  <span className="infra-detail-value">₱0.00</span>
-                </div>
+            <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Type of Work</span>
+                <span className="block font-medium text-gray-900">Construction of Flood Mitigation Structure</span>
+              </div>
+              <div>
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Contractor</span>
+                <span className="block font-medium text-gray-900">Sample Contractor Inc.</span>
+              </div>
+              <div>
+                <span className="text-xs text-gray-500 uppercase tracking-wide">Contract Cost</span>
+                <span className="block font-bold text-primary-600 text-lg">₱0.00</span>
               </div>
             </div>
-            <div className="infra-project-footer">
-              <span className="infra-source"><i className="bi bi-info-circle"></i> Replace with actual project data</span>
+            <div className="px-6 py-3 bg-gray-50 border-t border-gray-200">
+              <span className="text-sm text-gray-500 flex items-center gap-1">
+                <i className="bi bi-info-circle"></i> Replace with actual project data
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       {/* DPWH Projects Section */}
-      <section className="infra-section-v5 infra-section-alt animate-on-scroll">
-        <div className="container">
-          <div className="infra-header-v5">
-            <span className="infra-label-v5"><i className="bi bi-building"></i> National Government Projects</span>
-            <h2>DPWH Infrastructure Projects in {lguName}</h2>
-            <p>Implementing Agency: District Engineering Office</p>
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="mb-8">
+            <span className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium mb-2">
+              <i className="bi bi-building"></i> National Government Projects
+            </span>
+            <h2 className="text-2xl font-bold text-gray-900">DPWH Infrastructure Projects in {lguName}</h2>
+            <p className="text-gray-500">Implementing Agency: District Engineering Office</p>
           </div>
 
-          <div id="dpwh-projects-container">
-            {/* DPWH projects will be loaded dynamically */}
-            <p className="loading-text">Configure DPWH projects data in public/data/dpwh-projects.json</p>
+          <div id="dpwh-projects-container" className="bg-gray-50 border border-gray-200 rounded-xl p-8">
+            <p className="text-gray-500 text-center">Configure DPWH projects data in public/data/dpwh-projects.json</p>
           </div>
 
-          <p className="sre-source dpwh-source-margin"><i className="bi bi-info-circle"></i> Source: <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener noreferrer">DPWH Transparency Portal</a></p>
+          <p className="text-sm text-gray-500 flex items-center gap-2 mt-4">
+            <i className="bi bi-info-circle"></i>
+            Source: <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">DPWH Transparency Portal</a>
+          </p>
         </div>
       </section>
 

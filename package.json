@@ -12,16 +12,21 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.8.0",
+    "@tailwindcss/postcss": "^4.1.18",
     "chart.js": "^4.5.1",
     "i18next": "^23.10.0",
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.562.0",
     "next": "^14.2.0",
     "next-i18next": "^15.2.0",
+    "postcss": "^8.5.6",
     "react": "^18.3.0",
     "react-chartjs-2": "^5.3.1",
     "react-dom": "^18.3.0",
     "react-i18next": "^14.1.0",
-    "react-leaflet": "^4.2.1"
+    "react-leaflet": "^4.2.1",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.8",

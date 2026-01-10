@@ -31,62 +31,86 @@ export default function GovernmentPage() {
   return (
     <>
       {/* Breadcrumbs */}
-      <div className="container">
-        <nav className="breadcrumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <span aria-current="page">Government</span>
+      <div className="container mx-auto px-4">
+        <nav className="py-4 text-sm text-gray-500" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-primary-600">Home</Link>
+          <span className="mx-2">/</span>
+          <span aria-current="page" className="text-gray-900">Government</span>
         </nav>
       </div>
 
       {/* Page Header */}
-      <section className="page-header">
-        <div className="container">
-          <div className="page-header-content">
-            <span className="page-header-badge"><i className="bi bi-building-fill"></i> Government</span>
-            <h1>Government Structure &amp; Officials</h1>
-            <p className="page-header-desc">Meet the leadership and offices serving {lguName}</p>
+      <section className="bg-gradient-to-br from-primary-600 to-primary-700 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <i className="bi bi-building-fill"></i> Government
+            </span>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Government Structure &amp; Officials</h1>
+            <p className="text-lg text-white/90">Meet the leadership and offices serving {lguName}</p>
           </div>
         </div>
       </section>
 
       {/* Executive Branch */}
-      <section className="section" style={{ background: 'var(--color-bg-alt)' }}>
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 bg-primary-600 text-white px-5 py-2 rounded-full text-sm font-medium mb-3">
               <i className="bi bi-star-fill"></i> Executive Branch
             </span>
-            <h3 style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>{labels.lguTypeLabel} Leadership</h3>
-            <p style={{ color: 'var(--color-text-light)' }}>The executive officials leading {lguName}&apos;s governance</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">{labels.lguTypeLabel} Leadership</h2>
+            <p className="text-gray-500">The executive officials leading {lguName}&apos;s governance</p>
           </div>
 
-          <div className="grid grid-2" style={{ gap: 'var(--spacing-lg)' }}>
-            <div className="executive-card">
-              <div className="executive-card-header">
-                <span className="executive-badge">{labels.lguTypeLabel} {getLeaderTitle()}</span>
-                <h4 className="executive-name">{leader?.name ? `Hon. ${leader.name}` : 'To be updated'}</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Leader */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-primary-500 hover:shadow-lg">
+              <div className="bg-primary-600 text-white p-6 text-center">
+                <span className="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 uppercase tracking-wide">
+                  {labels.lguTypeLabel} {getLeaderTitle()}
+                </span>
+                <h3 className="text-xl font-semibold">{leader?.name ? `Hon. ${leader.name}` : 'To be updated'}</h3>
               </div>
-              <div className="executive-card-body">
-                <div className="executive-contacts">
-                  {leader?.email && <a href={`mailto:${leader.email}`}><i className="bi bi-envelope"></i> {leader.email}</a>}
-                  {leader?.phone && <a href={`tel:${formatPhoneLink(leader.phone)}`}><i className="bi bi-telephone"></i> {leader.phone}</a>}
-                  <span><i className="bi bi-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</span>
-                </div>
+              <div className="p-6 space-y-3">
+                {leader?.email && (
+                  <a href={`mailto:${leader.email}`} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                    <i className="bi bi-envelope text-primary-600"></i> {leader.email}
+                  </a>
+                )}
+                {leader?.phone && (
+                  <a href={`tel:${formatPhoneLink(leader.phone)}`} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                    <i className="bi bi-telephone text-primary-600"></i> {leader.phone}
+                  </a>
+                )}
+                <span className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg text-gray-700">
+                  <i className="bi bi-clock text-primary-600"></i> Mon-Fri: 8:00 AM - 5:00 PM
+                </span>
               </div>
             </div>
 
-            <div className="executive-card">
-              <div className="executive-card-header">
-                <span className="executive-badge">{labels.lguTypeLabel} {getViceLeaderTitle()}</span>
-                <h4 className="executive-name">{viceLeader?.name ? `Hon. ${viceLeader.name}` : 'To be updated'}</h4>
+            {/* Vice Leader */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-primary-500 hover:shadow-lg">
+              <div className="bg-primary-600 text-white p-6 text-center">
+                <span className="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 uppercase tracking-wide">
+                  {labels.lguTypeLabel} {getViceLeaderTitle()}
+                </span>
+                <h3 className="text-xl font-semibold">{viceLeader?.name ? `Hon. ${viceLeader.name}` : 'To be updated'}</h3>
               </div>
-              <div className="executive-card-body">
-                <div className="executive-contacts">
-                  {viceLeader?.email && <a href={`mailto:${viceLeader.email}`}><i className="bi bi-envelope"></i> {viceLeader.email}</a>}
-                  {viceLeader?.phone && <a href={`tel:${formatPhoneLink(viceLeader.phone)}`}><i className="bi bi-telephone"></i> {viceLeader.phone}</a>}
-                  <span><i className="bi bi-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</span>
-                </div>
+              <div className="p-6 space-y-3">
+                {viceLeader?.email && (
+                  <a href={`mailto:${viceLeader.email}`} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                    <i className="bi bi-envelope text-primary-600"></i> {viceLeader.email}
+                  </a>
+                )}
+                {viceLeader?.phone && (
+                  <a href={`tel:${formatPhoneLink(viceLeader.phone)}`} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                    <i className="bi bi-telephone text-primary-600"></i> {viceLeader.phone}
+                  </a>
+                )}
+                <span className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg text-gray-700">
+                  <i className="bi bi-clock text-primary-600"></i> Mon-Fri: 8:00 AM - 5:00 PM
+                </span>
               </div>
             </div>
           </div>
@@ -94,43 +118,51 @@ export default function GovernmentPage() {
       </section>
 
       {/* Legislative Branch */}
-      <section className="section">
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, var(--color-success) 0%, #05c793 100%)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 bg-primary-600 text-white px-5 py-2 rounded-full text-sm font-medium mb-3">
               <i className="bi bi-people-fill"></i> Legislative Branch
             </span>
-            <h3 style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>{getLegislativeBody()} Members</h3>
-            <p style={{ color: 'var(--color-text-light)' }}>{getLegislativeMembers()} serving the people of {lguName}</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">{getLegislativeBody()} Members</h2>
+            <p className="text-gray-500">{getLegislativeMembers()} serving the people of {lguName}</p>
           </div>
 
-          <div className="grid grid-3" style={{ gap: 'var(--spacing-md)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sbMembers.map((member) => (
-              <div key={member.id} className="councilor-card">
-                <h4 className="councilor-name">{member.name ? `Hon. ${member.name}` : 'To be updated'}</h4>
-                <span className="councilor-badge">{getLegislativeMembers().replace('s', '')}</span>
-                {member.committees && <p className="councilor-committees">{member.committees}</p>}
+              <div key={member.id} className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-200 hover:border-primary-500 hover:shadow-md">
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{member.name ? `Hon. ${member.name}` : 'To be updated'}</h4>
+                <span className="inline-block bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  {getLegislativeMembers().replace('s', '')}
+                </span>
+                {member.committees && <p className="text-sm text-gray-500">{member.committees}</p>}
               </div>
             ))}
             {ligaPresident && (
-              <div className="councilor-card councilor-card--liga">
-                <h4 className="councilor-name">{ligaPresident.name ? `Hon. ${ligaPresident.name}` : 'To be updated'}</h4>
-                <span className="councilor-badge councilor-badge--liga">{ligaPresident.title}</span>
-                {ligaPresident.committees && <p className="councilor-committees">{ligaPresident.committees}</p>}
+              <div className="bg-white border border-green-200 rounded-xl p-6 transition-all duration-200 hover:border-green-500 hover:shadow-md">
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{ligaPresident.name ? `Hon. ${ligaPresident.name}` : 'To be updated'}</h4>
+                <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  {ligaPresident.title}
+                </span>
+                {ligaPresident.committees && <p className="text-sm text-gray-500">{ligaPresident.committees}</p>}
               </div>
             )}
             {skPresident && (
-              <div className="councilor-card councilor-card--sk">
-                <h4 className="councilor-name">{skPresident.name ? `Hon. ${skPresident.name}` : 'To be updated'}</h4>
-                <span className="councilor-badge councilor-badge--sk">{skPresident.title}</span>
-                {skPresident.committees && <p className="councilor-committees">{skPresident.committees}</p>}
+              <div className="bg-white border border-yellow-200 rounded-xl p-6 transition-all duration-200 hover:border-yellow-500 hover:shadow-md">
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{skPresident.name ? `Hon. ${skPresident.name}` : 'To be updated'}</h4>
+                <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  {skPresident.title}
+                </span>
+                {skPresident.committees && <p className="text-sm text-gray-500">{skPresident.committees}</p>}
               </div>
             )}
             {ipmr && (
-              <div className="councilor-card councilor-card--ipmr">
-                <h4 className="councilor-name">{ipmr.name ? `Hon. ${ipmr.name}` : 'To be updated'}</h4>
-                <span className="councilor-badge councilor-badge--ipmr">IPMR</span>
-                {ipmr.committees && <p className="councilor-committees">{ipmr.committees}</p>}
+              <div className="bg-white border border-purple-200 rounded-xl p-6 transition-all duration-200 hover:border-purple-500 hover:shadow-md">
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{ipmr.name ? `Hon. ${ipmr.name}` : 'To be updated'}</h4>
+                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  IPMR
+                </span>
+                {ipmr.committees && <p className="text-sm text-gray-500">{ipmr.committees}</p>}
               </div>
             )}
           </div>
@@ -138,28 +170,38 @@ export default function GovernmentPage() {
       </section>
 
       {/* Department Heads */}
-      <section className="section" style={{ background: 'var(--color-bg-alt)' }}>
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, var(--color-info) 0%, #0099cc 100%)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 bg-primary-600 text-white px-5 py-2 rounded-full text-sm font-medium mb-3">
               <i className="bi bi-building-fill"></i> {getDeptPrefix()} Offices
             </span>
-            <h3 style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Department Heads &amp; Key Offices</h3>
-            <p style={{ color: 'var(--color-text-light)' }}>{getDeptPrefix()} offices providing services to citizens</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Department Heads &amp; Key Offices</h2>
+            <p className="text-gray-500">{getDeptPrefix()} offices providing services to citizens</p>
           </div>
 
-          <div className="grid grid-3" style={{ gap: 'var(--spacing-md)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {officials.departments.map((dept) => (
-              <Link key={dept.id} href={`/service-details/${dept.slug}`} className="dept-card dept-card-link-wrap">
-                <div className="dept-card-icon"><i className={`bi ${dept.icon}`}></i></div>
-                <div className="dept-card-content">
-                  <h4 className="dept-card-title">{dept.department}</h4>
-                  <p className="dept-card-desc">{dept.description}</p>
-                  <div className="dept-card-contacts">
-                    {dept.phone && <span><i className="bi bi-telephone"></i> {dept.phone}</span>}
-                    {dept.email && <span><i className="bi bi-envelope"></i> {dept.email}</span>}
+              <Link
+                key={dept.id}
+                href={`/service-details/${dept.slug}`}
+                className="group bg-white border border-gray-200 rounded-xl p-6 no-underline transition-all duration-200 hover:border-primary-500 hover:shadow-lg"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-primary-50 rounded-xl text-primary-600 text-xl shrink-0 transition-all duration-200 group-hover:bg-primary-600 group-hover:text-white">
+                    <i className={`bi ${dept.icon}`}></i>
                   </div>
-                  <span className="dept-card-link">View Services <i className="bi bi-arrow-right"></i></span>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-base font-semibold text-gray-900 mb-1">{dept.department}</h4>
+                    <p className="text-sm text-gray-500 mb-3">{dept.description}</p>
+                    <div className="space-y-1 text-xs text-gray-500">
+                      {dept.phone && <span className="flex items-center gap-1"><i className="bi bi-telephone"></i> {dept.phone}</span>}
+                      {dept.email && <span className="flex items-center gap-1"><i className="bi bi-envelope"></i> {dept.email}</span>}
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm mt-3 group-hover:gap-2 transition-all">
+                      View Services <i className="bi bi-arrow-right"></i>
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -168,30 +210,34 @@ export default function GovernmentPage() {
       </section>
 
       {/* Subdivisions */}
-      <section className="section">
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 bg-primary-600 text-white px-5 py-2 rounded-full text-sm font-medium mb-3">
               <i className="bi bi-geo-alt-fill"></i> {getSubdivisionTypePlural()}
             </span>
-            <h3 style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>{getSubdivisionTypePlural()} of {lguName}</h3>
-            <p style={{ color: 'var(--color-text-light)' }}>{subdivisions.count} {getSubdivisionTypePlural()} serving our community</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">{getSubdivisionTypePlural()} of {lguName}</h2>
+            <p className="text-gray-500">{subdivisions.count} {getSubdivisionTypePlural()} serving our community</p>
           </div>
 
-          <div className="grid grid-4" style={{ gap: 'var(--spacing-sm)' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {subdivisions.items.map((item) => (
-              <a 
-                key={item.id} 
-                href={item.phone ? `tel:${formatPhoneLink(item.phone)}` : '#'} 
-                className="barangay-card"
+              <a
+                key={item.id}
+                href={item.phone ? `tel:${formatPhoneLink(item.phone)}` : '#'}
+                className="bg-white border border-gray-200 rounded-xl p-4 no-underline transition-all duration-200 hover:border-primary-500 hover:shadow-md"
               >
-                <div className="barangay-card-header">
-                  <i className="bi bi-geo-alt-fill"></i>
-                  <span className="barangay-name">{item.name}</span>
+                <div className="flex items-center gap-3 mb-2">
+                  <i className="bi bi-geo-alt-fill text-primary-600"></i>
+                  <span className="font-semibold text-gray-900">{item.name}</span>
                 </div>
-                <div className="barangay-card-body">
-                  <span className="barangay-captain">{item.leader}</span>
-                  {item.phone && <span className="barangay-contact"><i className="bi bi-telephone"></i> {item.phone}</span>}
+                <div className="text-sm text-gray-500">
+                  <span className="block">{item.leader}</span>
+                  {item.phone && (
+                    <span className="flex items-center gap-1 mt-1 text-primary-600">
+                      <i className="bi bi-telephone"></i> {item.phone}
+                    </span>
+                  )}
                 </div>
               </a>
             ))}

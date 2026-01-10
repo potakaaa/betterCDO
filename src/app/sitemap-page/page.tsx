@@ -6,122 +6,141 @@ import { useSiteConfig } from '@/contexts/SiteConfigContext';
 export default function SitemapPage() {
   const { lguName, site, labels } = useSiteConfig();
 
+  const sections = [
+    {
+      icon: 'bi-house-door',
+      title: 'Main Navigation',
+      links: [
+        { href: '/', label: 'Home' },
+        { href: '/services', label: 'Services' },
+        { href: '/government', label: 'Government' },
+        { href: '/statistics', label: 'Statistics' },
+        { href: '/legislative', label: 'Legislative' },
+        { href: '/budget', label: 'Transparency' },
+        { href: '/contact', label: 'Contact' },
+        { href: '/news', label: 'News' },
+        { href: '/faq', label: 'FAQ' },
+        { href: '/accessibility', label: 'Accessibility' },
+      ]
+    },
+    {
+      icon: 'bi-grid-3x3-gap',
+      title: 'Service Categories',
+      links: [
+        { href: '/services/certificates', label: 'Certificates & Vital Records' },
+        { href: '/services/business', label: 'Business Services' },
+        { href: '/services/social-services', label: 'Social Services' },
+        { href: '/services/health', label: 'Health & Wellness' },
+        { href: '/services/tax-payments', label: 'Tax & Payments' },
+        { href: '/services/agriculture', label: 'Agriculture' },
+        { href: '/services/infrastructure', label: 'Infrastructure' },
+        { href: '/services/education', label: 'Education' },
+        { href: '/services/environment', label: 'Environment' },
+        { href: '/services/public-safety', label: 'Public Safety' },
+      ]
+    },
+    {
+      icon: 'bi-building',
+      title: `${labels.deptPrefix} Offices`,
+      cols: 4,
+      links: [
+        { href: '/service-details/civil-registrar', label: 'Local Civil Registrar' },
+        { href: '/service-details/municipal-treasurer', label: "Treasurer's Office" },
+        { href: '/service-details/municipal-assessor', label: "Assessor's Office" },
+        { href: '/service-details/municipal-budget', label: 'Budget Office' },
+        { href: '/service-details/municipal-accounting', label: 'Accounting Office' },
+        { href: '/service-details/municipal-engineering', label: 'Engineering Office' },
+        { href: '/service-details/municipal-planning', label: 'Planning Office' },
+        { href: '/service-details/municipal-agriculture', label: 'Agriculture Office' },
+        { href: '/service-details/mswdo-services', label: 'MSWDO' },
+        { href: '/service-details/business-permits-licensing', label: 'BPLS Office' },
+        { href: '/service-details/general-services', label: 'General Services' },
+        { href: '/service-details/human-resource-management', label: 'HR Management' },
+      ]
+    },
+    {
+      icon: 'bi-bank',
+      title: 'Government & Legislative',
+      links: [
+        { href: '/government', label: 'Government Structure' },
+        { href: '/government/officials', label: 'Elected Officials' },
+        { href: '/legislative', label: 'Legislative Documents' },
+        { href: '/legislative/ordinance-framework', label: 'Ordinance Framework' },
+        { href: '/legislative/resolution-framework', label: 'Resolution Framework' },
+      ]
+    },
+    {
+      icon: 'bi-link-45deg',
+      title: 'Resources & Legal',
+      links: [
+        ...(site.social.facebook ? [{ href: site.social.facebook, label: 'Facebook Page', external: true as const }] : []),
+        { href: '/terms', label: 'Terms of Use', external: false as const },
+        { href: '/privacy', label: 'Privacy Policy', external: false as const },
+      ]
+    },
+  ];
+
   return (
     <>
       {/* Breadcrumbs */}
-      <div className="container">
-        <nav className="breadcrumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <span aria-current="page">Sitemap</span>
+      <div className="container mx-auto px-4">
+        <nav className="py-4 text-sm text-gray-500" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-primary-600">Home</Link>
+          <span className="mx-2">/</span>
+          <span aria-current="page" className="text-gray-900">Sitemap</span>
         </nav>
       </div>
 
       {/* Page Header */}
-      <section className="page-header">
-        <div className="container">
-          <div className="page-header-content">
-            <span className="page-header-badge"><i className="bi bi-diagram-3-fill"></i> Navigation</span>
-            <h1>Sitemap</h1>
-            <p className="page-header-desc">Navigate all pages and services of Better {lguName}</p>
+      <section className="bg-gradient-to-br from-primary-600 to-primary-700 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <i className="bi bi-diagram-3-fill"></i> Navigation
+            </span>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Sitemap</h1>
+            <p className="text-lg text-white/90">Navigate all pages and services of Better {lguName}</p>
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          {/* Main Navigation */}
-          <div className="sitemap-section-new">
-            <div className="sitemap-section-header">
-              <span className="sitemap-section-icon"><i className="bi bi-house-door"></i></span>
-              <h2>Main Navigation</h2>
-            </div>
-            <div className="sitemap-links-grid">
-              <Link href="/" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Home</Link>
-              <Link href="/services" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Services</Link>
-              <Link href="/government" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Government</Link>
-              <Link href="/statistics" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Statistics</Link>
-              <Link href="/legislative" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Legislative</Link>
-              <Link href="/budget" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Transparency</Link>
-              <Link href="/contact" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Contact</Link>
-              <Link href="/news" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> News</Link>
-              <Link href="/faq" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> FAQ</Link>
-              <Link href="/accessibility" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Accessibility</Link>
-            </div>
-          </div>
-
-          {/* Service Categories */}
-          <div className="sitemap-section-new">
-            <div className="sitemap-section-header">
-              <span className="sitemap-section-icon"><i className="bi bi-grid-3x3-gap"></i></span>
-              <h2>Service Categories</h2>
-            </div>
-            <div className="sitemap-links-grid">
-              <Link href="/services/certificates" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Certificates &amp; Vital Records</Link>
-              <Link href="/services/business" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Business Services</Link>
-              <Link href="/services/social-services" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Social Services</Link>
-              <Link href="/services/health" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Health &amp; Wellness</Link>
-              <Link href="/services/tax-payments" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Tax &amp; Payments</Link>
-              <Link href="/services/agriculture" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Agriculture</Link>
-              <Link href="/services/infrastructure" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Infrastructure</Link>
-              <Link href="/services/education" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Education</Link>
-              <Link href="/services/environment" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Environment</Link>
-              <Link href="/services/public-safety" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Public Safety</Link>
-            </div>
-          </div>
-
-          {/* Municipal Offices */}
-          <div className="sitemap-section-new">
-            <div className="sitemap-section-header">
-              <span className="sitemap-section-icon"><i className="bi bi-building"></i></span>
-              <h2>{labels.deptPrefix} Offices</h2>
-            </div>
-            <div className="sitemap-links-grid sitemap-links-grid--4col">
-              <Link href="/service-details/civil-registrar" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Local Civil Registrar</Link>
-              <Link href="/service-details/municipal-treasurer" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Treasurer&apos;s Office</Link>
-              <Link href="/service-details/municipal-assessor" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Assessor&apos;s Office</Link>
-              <Link href="/service-details/municipal-budget" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Budget Office</Link>
-              <Link href="/service-details/municipal-accounting" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Accounting Office</Link>
-              <Link href="/service-details/municipal-engineering" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Engineering Office</Link>
-              <Link href="/service-details/municipal-planning" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Planning Office</Link>
-              <Link href="/service-details/municipal-agriculture" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Agriculture Office</Link>
-              <Link href="/service-details/mswdo-services" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> MSWDO</Link>
-              <Link href="/service-details/business-permits-licensing" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> BPLS Office</Link>
-              <Link href="/service-details/general-services" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> General Services</Link>
-              <Link href="/service-details/human-resource-management" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> HR Management</Link>
-            </div>
-          </div>
-
-          {/* Government & Legislative */}
-          <div className="sitemap-section-new">
-            <div className="sitemap-section-header">
-              <span className="sitemap-section-icon"><i className="bi bi-bank"></i></span>
-              <h2>Government &amp; Legislative</h2>
-            </div>
-            <div className="sitemap-links-grid">
-              <Link href="/government" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Government Structure</Link>
-              <Link href="/government/officials" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Elected Officials</Link>
-              <Link href="/legislative" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Legislative Documents</Link>
-              <Link href="/legislative/ordinance-framework" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Ordinance Framework</Link>
-              <Link href="/legislative/resolution-framework" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Resolution Framework</Link>
-            </div>
-          </div>
-
-          {/* External Resources */}
-          <div className="sitemap-section-new">
-            <div className="sitemap-section-header">
-              <span className="sitemap-section-icon"><i className="bi bi-link-45deg"></i></span>
-              <h2>Resources &amp; Legal</h2>
-            </div>
-            <div className="sitemap-links-grid">
-              {site.social.facebook && (
-                <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="sitemap-link-item sitemap-link-item--external">
-                  <i className="bi bi-box-arrow-up-right"></i> Facebook Page
-                </a>
-              )}
-              <Link href="/terms" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Terms of Use</Link>
-              <Link href="/privacy" className="sitemap-link-item"><i className="bi bi-arrow-right"></i> Privacy Policy</Link>
-            </div>
+      {/* Sitemap Content */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="space-y-8">
+            {sections.map((section, sectionIndex) => (
+              <div key={sectionIndex} className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+                <div className="flex items-center gap-3 p-6 border-b border-gray-200 bg-gray-50">
+                  <span className="w-10 h-10 flex items-center justify-center bg-primary-100 text-primary-600 rounded-lg">
+                    <i className={`bi ${section.icon} text-lg`}></i>
+                  </span>
+                  <h2 className="text-lg font-bold text-gray-900 m-0">{section.title}</h2>
+                </div>
+                <div className={`p-6 grid gap-3 ${section.cols === 4 ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'}`}>
+                  {section.links.map((link, linkIndex) => (
+                    'external' in link && link.external ? (
+                      <a
+                        key={linkIndex}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 p-3 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+                      >
+                        <i className="bi bi-box-arrow-up-right text-sm"></i> {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={linkIndex}
+                        href={link.href}
+                        className="flex items-center gap-2 p-3 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+                      >
+                        <i className="bi bi-arrow-right text-sm"></i> {link.label}
+                      </Link>
+                    )
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

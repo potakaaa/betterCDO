@@ -42,3 +42,41 @@ export const hotlines: Hotline[] = [
   { name: 'MDRRMO', number: '0926 383 3744', icon: 'bi-exclamation-triangle-fill' },
   { name: 'R2TMC', number: '0906 819 5569', icon: 'bi-truck' },
 ];
+
+export const footerNavigation = {
+  socialLinks: [
+    { label: 'Facebook', href: 'https://facebook.com/bettergovph' },
+    { label: 'Twitter', href: 'https://twitter.com/bettergovph' },
+    { label: 'Instagram', href: 'https://instagram.com/bettergovph' },
+    { label: 'YouTube', href: 'https://youtube.com/bettergovph' },
+    { label: 'Discord', href: 'https://discord.gg/bettergovph' },
+  ],
+  mainSections: [
+    {
+      title: 'Quick Links',
+      links: [
+        { label: 'Sitemap', href: '/sitemap-page' },
+        { label: 'Terms of Use', href: '/terms' },
+        { label: 'Privacy Policy', href: '/privacy' },
+        { label: 'Accessibility', href: '/accessibility' },
+        { label: 'FAQ', href: '/faq' },
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { label: 'Open Data Philippines', href: 'https://data.gov.ph' },
+        { label: 'Freedom of Information', href: 'https://www.foi.gov.ph/' },
+        { label: 'BLGF Portal', href: 'https://blgf.gov.ph/' },
+        { label: 'CMCI DTI Portal', href: 'https://cmci.dti.gov.ph/' },
+      ],
+    },
+    {
+      title: 'Get Involved',
+      links: [
+        { label: 'Volunteer with us', href: 'mailto:volunteer@lgu.gov.ph' }, // Placeholder, will be dynamic in component if possible, or we just rely on this
+        { label: 'Contribute code', href: 'https://github.com/bettergovph/bettergov' },
+      ],
+    },
+  ],
+};
