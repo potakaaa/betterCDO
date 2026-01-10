@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function PrivacyPage() {
+  const { lguName, getSiteTitle, getVolunteerEmail } = useSiteConfig();
+  const siteTitle = getSiteTitle();
+  const volunteerEmail = getVolunteerEmail();
+
   return (
     <>
       <link rel="stylesheet" href="/assets/css/legal.css" />
@@ -55,7 +60,7 @@ export default function PrivacyPage() {
             <article className="legal-article">
               <section id="introduction" className="legal-section">
                 <h2>Introduction</h2>
-                <p>BetterSolano.org (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+                <p>{siteTitle} (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
                 <p>This policy is designed to comply with the <strong>Data Privacy Act of 2012 (Republic Act No. 10173)</strong> of the Philippines and its Implementing Rules and Regulations (IRR).</p>
                 <div className="legal-highlight">
                   <i className="bi bi-shield-check"></i>
@@ -149,7 +154,7 @@ export default function PrivacyPage() {
                 <ul className="legal-list">
                   <li><strong>Service Providers:</strong> With trusted third-party services (e.g., web hosting, analytics) that assist in operating our website, subject to confidentiality agreements</li>
                   <li><strong>Legal Requirements:</strong> When required by law, court order, or government authority under Philippine jurisdiction</li>
-                  <li><strong>Protection of Rights:</strong> To protect the rights, property, or safety of BetterSolano.org, our users, or the public</li>
+                  <li><strong>Protection of Rights:</strong> To protect the rights, property, or safety of {siteTitle}, our users, or the public</li>
                   <li><strong>Consent:</strong> With your explicit consent for any other purpose</li>
                 </ul>
               </section>
@@ -193,14 +198,14 @@ export default function PrivacyPage() {
 
                 <div className="legal-callout">
                   <h4><i className="bi bi-person-check"></i> Exercising Your Rights</h4>
-                  <p>To exercise any of these rights, please contact us at <a href="mailto:volunteer@bettersolano.org">volunteer@bettersolano.org</a>. We will respond to your request within 30 days as required by law.</p>
+                  <p>To exercise any of these rights, please contact us at <a href={`mailto:${volunteerEmail}`}>{volunteerEmail}</a>. We will respond to your request within 30 days as required by law.</p>
                 </div>
               </section>
 
               <section id="childrens-privacy" className="legal-section">
                 <h2>Children&apos;s Privacy</h2>
-                <p>BetterSolano.org is a general audience website providing civic information. We do not knowingly collect personal information from children under 18 years of age without parental consent.</p>
-                <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <a href="mailto:volunteer@bettersolano.org">volunteer@bettersolano.org</a>, and we will take steps to delete such information.</p>
+                <p>{siteTitle} is a general audience website providing civic information. We do not knowingly collect personal information from children under 18 years of age without parental consent.</p>
+                <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <a href={`mailto:${volunteerEmail}`}>{volunteerEmail}</a>, and we will take steps to delete such information.</p>
               </section>
 
               <section id="third-party" className="legal-section">
@@ -223,9 +228,9 @@ export default function PrivacyPage() {
                 <h2>Contact Us</h2>
                 <p>If you have questions about this Privacy Policy, wish to exercise your data privacy rights, or have concerns about how your information is handled, please contact us:</p>
                 <div className="legal-contact">
-                  <a href="mailto:volunteer@bettersolano.org" className="contact-link">
+                  <a href={`mailto:${volunteerEmail}`} className="contact-link">
                     <i className="bi bi-envelope-fill"></i>
-                    <span>volunteer@bettersolano.org</span>
+                    <span>{volunteerEmail}</span>
                   </a>
                 </div>
                 

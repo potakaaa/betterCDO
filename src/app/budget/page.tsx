@@ -4,50 +4,52 @@ import Link from 'next/link';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { IncomeSourcesChart, ExpenditureChart } from '@/components/charts/Charts';
+import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
-// Budget data for Q1 and Q2
+// Sample budget data for Q1 and Q2 - replace with actual data from your LGU
 const budgetData = {
   q1: {
-    totalIncome: '₱158.47 M',
-    totalExpense: '₱67.51 M',
-    netIncome: '₱90.96 M',
-    fundBalance: '₱283.29 M',
+    totalIncome: '₱0.00 M',
+    totalExpense: '₱0.00 M',
+    netIncome: '₱0.00 M',
+    fundBalance: '₱0.00 M',
     income: {
-      local: { amount: '₱88.85 M', pct: '56.1%', value: 88.85 },
-      external: { amount: '₱69.62 M', pct: '43.9%', value: 69.62 }
+      local: { amount: '₱0.00 M', pct: '0%', value: 0 },
+      external: { amount: '₱0.00 M', pct: '0%', value: 0 }
     },
     expenditure: {
-      gps: { amount: '₱42.76 M', pct: '63.3%', value: 42.76 },
-      social: { amount: '₱13.33 M', pct: '19.7%', value: 13.33 },
-      economic: { amount: '₱11.07 M', pct: '16.4%', value: 11.07 },
-      debt: { amount: '₱0.35 M', pct: '0.5%', value: 0.35 }
+      gps: { amount: '₱0.00 M', pct: '0%', value: 0 },
+      social: { amount: '₱0.00 M', pct: '0%', value: 0 },
+      economic: { amount: '₱0.00 M', pct: '0%', value: 0 },
+      debt: { amount: '₱0.00 M', pct: '0%', value: 0 }
     },
-    totalIncomeValue: 158.47,
-    totalExpenseValue: 67.51
+    totalIncomeValue: 0,
+    totalExpenseValue: 0
   },
   q2: {
-    totalIncome: '₱172.34 M',
-    totalExpense: '₱78.92 M',
-    netIncome: '₱93.42 M',
-    fundBalance: '₱376.71 M',
+    totalIncome: '₱0.00 M',
+    totalExpense: '₱0.00 M',
+    netIncome: '₱0.00 M',
+    fundBalance: '₱0.00 M',
     income: {
-      local: { amount: '₱95.28 M', pct: '55.3%', value: 95.28 },
-      external: { amount: '₱77.06 M', pct: '44.7%', value: 77.06 }
+      local: { amount: '₱0.00 M', pct: '0%', value: 0 },
+      external: { amount: '₱0.00 M', pct: '0%', value: 0 }
     },
     expenditure: {
-      gps: { amount: '₱48.15 M', pct: '61.0%', value: 48.15 },
-      social: { amount: '₱16.82 M', pct: '21.3%', value: 16.82 },
-      economic: { amount: '₱13.16 M', pct: '16.7%', value: 13.16 },
-      debt: { amount: '₱0.79 M', pct: '1.0%', value: 0.79 }
+      gps: { amount: '₱0.00 M', pct: '0%', value: 0 },
+      social: { amount: '₱0.00 M', pct: '0%', value: 0 },
+      economic: { amount: '₱0.00 M', pct: '0%', value: 0 },
+      debt: { amount: '₱0.00 M', pct: '0%', value: 0 }
     },
-    totalIncomeValue: 172.34,
-    totalExpenseValue: 78.92
+    totalIncomeValue: 0,
+    totalExpenseValue: 0
   }
 };
 
 export default function BudgetPage() {
   const [activeQuarter, setActiveQuarter] = useState<'q1' | 'q2'>('q1');
   const currentData = budgetData[activeQuarter];
+  const { lguName, fullLocation, labels } = useSiteConfig();
 
   useEffect(() => {
     // Animation on scroll
@@ -85,7 +87,7 @@ export default function BudgetPage() {
           <div className="trans-hero-content-v2">
             <span className="trans-hero-badge-v2"><i className="bi bi-shield-check"></i> Financial Transparency</span>
             <h1>Budget &amp; Financial Transparency</h1>
-            <p>Tracking municipal finances and projects for accountability</p>
+            <p>Tracking {labels.lguTypeLabel.toLowerCase()} finances and projects for accountability</p>
           </div>
         </div>
       </section>
@@ -253,7 +255,7 @@ export default function BudgetPage() {
             </div>
           </div>
 
-          <p className="sre-source"><i className="bi bi-info-circle"></i> Source: <a href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer">Bureau of Local Government Finance (BLGF)</a></p>
+          <p className="sre-source"><i className="bi bi-info-circle"></i> Source: <a href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer">Bureau of Local Government Finance (BLGF)</a> — Update with your LGU&apos;s actual financial data</p>
         </div>
       </section>
 
@@ -266,14 +268,15 @@ export default function BudgetPage() {
             <p>Major development projects serving the community</p>
           </div>
 
+          {/* Sample Infrastructure Projects - Replace with actual projects */}
           <div className="infra-project-v5">
             <div className="infra-project-main">
               <div className="infra-project-tags">
                 <span className="infra-tag-year">2024</span>
                 <span className="infra-tag-category"><i className="bi bi-water"></i> Flood Control</span>
               </div>
-              <h3>FCDS Package 5 - Magat River Flood Control</h3>
-              <p className="infra-location"><i className="bi bi-geo-alt"></i> Magat River, Bagahabag Section, Solano, Nueva Vizcaya</p>
+              <h3>Sample Flood Control Project</h3>
+              <p className="infra-location"><i className="bi bi-geo-alt"></i> {fullLocation}</p>
             </div>
             <div className="infra-project-details">
               <div className="infra-detail-row">
@@ -283,85 +286,16 @@ export default function BudgetPage() {
                 </div>
                 <div className="infra-detail-col">
                   <span className="infra-detail-label">Contractor</span>
-                  <span className="infra-detail-value">EGB Construction Corporation</span>
+                  <span className="infra-detail-value">Sample Contractor Inc.</span>
                 </div>
                 <div className="infra-detail-col infra-detail-cost">
                   <span className="infra-detail-label">Contract Cost</span>
-                  <span className="infra-detail-value">₱144,750,000</span>
+                  <span className="infra-detail-value">₱0.00</span>
                 </div>
               </div>
             </div>
             <div className="infra-project-footer">
-              <span className="infra-source"><i className="bi bi-info-circle"></i> Source: Sumbong sa Pangulo</span>
-              <a href="https://sumbongsapangulo.ph/flood-control-map/" target="_blank" rel="noopener noreferrer" className="infra-link">
-                View on Map <i className="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div className="infra-project-v5">
-            <div className="infra-project-main">
-              <div className="infra-project-tags">
-                <span className="infra-tag-year">2021</span>
-                <span className="infra-tag-category"><i className="bi bi-water"></i> Flood Control</span>
-              </div>
-              <h3>Repair/Rehabilitation of Flood Control and Drainage Structure - Section 1</h3>
-              <p className="infra-location"><i className="bi bi-geo-alt"></i> Magat River, Bangar Section 1, Brgy. Bangar, Solano, Nueva Vizcaya</p>
-            </div>
-            <div className="infra-project-details">
-              <div className="infra-detail-row">
-                <div className="infra-detail-col">
-                  <span className="infra-detail-label">Type of Work</span>
-                  <span className="infra-detail-value">Rehabilitation / Major Repair of Flood Control Structure</span>
-                </div>
-                <div className="infra-detail-col">
-                  <span className="infra-detail-label">Contractor</span>
-                  <span className="infra-detail-value">Shanley Construction</span>
-                </div>
-                <div className="infra-detail-col infra-detail-cost">
-                  <span className="infra-detail-label">Contract Cost</span>
-                  <span className="infra-detail-value">₱29,700,000</span>
-                </div>
-              </div>
-            </div>
-            <div className="infra-project-footer">
-              <span className="infra-source"><i className="bi bi-info-circle"></i> Source: Sumbong sa Pangulo</span>
-              <a href="https://sumbongsapangulo.ph/flood-control-map/" target="_blank" rel="noopener noreferrer" className="infra-link">
-                View on Map <i className="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div className="infra-project-v5">
-            <div className="infra-project-main">
-              <div className="infra-project-tags">
-                <span className="infra-tag-year">2021</span>
-                <span className="infra-tag-category"><i className="bi bi-water"></i> Flood Control</span>
-              </div>
-              <h3>Repair/Rehabilitation of Flood Control and Drainage Structure - Section 2</h3>
-              <p className="infra-location"><i className="bi bi-geo-alt"></i> Magat River, Bangar Section 2, Brgy. Bangar, Solano, Nueva Vizcaya</p>
-            </div>
-            <div className="infra-project-details">
-              <div className="infra-detail-row">
-                <div className="infra-detail-col">
-                  <span className="infra-detail-label">Type of Work</span>
-                  <span className="infra-detail-value">Rehabilitation / Major Repair of Flood Control Structure</span>
-                </div>
-                <div className="infra-detail-col">
-                  <span className="infra-detail-label">Contractor</span>
-                  <span className="infra-detail-value">Shanley Construction</span>
-                </div>
-                <div className="infra-detail-col infra-detail-cost">
-                  <span className="infra-detail-label">Contract Cost</span>
-                  <span className="infra-detail-value">₱29,700,000</span>
-                </div>
-              </div>
-            </div>
-            <div className="infra-project-footer">
-              <span className="infra-source"><i className="bi bi-info-circle"></i> Source: Sumbong sa Pangulo</span>
-              <a href="https://sumbongsapangulo.ph/flood-control-map/" target="_blank" rel="noopener noreferrer" className="infra-link">
-                View on Map <i className="bi bi-arrow-up-right"></i>
-              </a>
+              <span className="infra-source"><i className="bi bi-info-circle"></i> Replace with actual project data</span>
             </div>
           </div>
         </div>
@@ -372,13 +306,13 @@ export default function BudgetPage() {
         <div className="container">
           <div className="infra-header-v5">
             <span className="infra-label-v5"><i className="bi bi-building"></i> National Government Projects</span>
-            <h2>DPWH Infrastructure Projects in Solano</h2>
-            <p>Implementing Agency: Nueva Vizcaya District Engineering Office</p>
+            <h2>DPWH Infrastructure Projects in {lguName}</h2>
+            <p>Implementing Agency: District Engineering Office</p>
           </div>
 
           <div id="dpwh-projects-container">
             {/* DPWH projects will be loaded dynamically */}
-            <p className="loading-text">Loading DPWH projects...</p>
+            <p className="loading-text">Configure DPWH projects data in public/data/dpwh-projects.json</p>
           </div>
 
           <p className="sre-source dpwh-source-margin"><i className="bi bi-info-circle"></i> Source: <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener noreferrer">DPWH Transparency Portal</a></p>

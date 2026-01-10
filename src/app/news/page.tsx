@@ -2,10 +2,13 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function NewsPage() {
   const { t } = useLanguage();
+  const { lguName, labels } = useSiteConfig();
 
+  // Sample news items - in production, these would come from a CMS or config file
   const newsItems = [
     {
       id: 1,
@@ -13,7 +16,7 @@ export default function NewsPage() {
       date: 'Nov 28, 2025',
       badge: 'Announcement',
       badgeClass: 'home-news-badge--info',
-      description: 'Deadline for business permit renewal is set for January 20, 2025. Early renewal is encouraged to avoid long queues and delays. The Municipal Business Permits and Licensing Office (BPLO) will be open from 8:00 AM to 5:00 PM on weekdays.',
+      description: `Deadline for business permit renewal is set for January 20, 2025. Early renewal is encouraged to avoid long queues and delays. The ${labels.deptPrefix} Business Permits and Licensing Office (BPLO) will be open from 8:00 AM to 5:00 PM on weekdays.`,
     },
     {
       id: 2,
@@ -21,7 +24,7 @@ export default function NewsPage() {
       date: 'Nov 15, 2025',
       badge: 'Project',
       badgeClass: 'home-news-badge--success',
-      description: 'The renovated wing of the Solano Public Market is now open to vendors and the public. The new wing features improved ventilation, modern stalls, and better sanitation facilities.',
+      description: 'The renovated wing of the Public Market is now open to vendors and the public. The new wing features improved ventilation, modern stalls, and better sanitation facilities.',
     },
     {
       id: 3,
@@ -29,7 +32,7 @@ export default function NewsPage() {
       date: 'Nov 10, 2025',
       badge: 'Advisory',
       badgeClass: 'home-news-badge--warning',
-      description: 'Maintenance scheduled for Barangay Osmeña on Dec 1, 8:00 AM - 5:00 PM. Affected areas include the main road and surrounding residential areas. Please prepare accordingly.',
+      description: 'Maintenance scheduled for Dec 1, 8:00 AM - 5:00 PM. Affected areas include the main road and surrounding residential areas. Please prepare accordingly.',
     },
     {
       id: 4,
@@ -37,7 +40,7 @@ export default function NewsPage() {
       date: 'Nov 5, 2025',
       badge: 'Event',
       badgeClass: 'home-news-badge--info',
-      description: 'The Municipal Health Office in partnership with the Department of Health will conduct a free medical mission at the Municipal Gymnasium on November 15, 2025.',
+      description: `The ${labels.deptPrefix} Health Office in partnership with the Department of Health will conduct a free medical mission at the ${labels.deptPrefix} Gymnasium on November 15, 2025.`,
     },
     {
       id: 5,
@@ -66,7 +69,7 @@ export default function NewsPage() {
           <div className="page-header-content">
             <span className="page-header-badge"><i className="bi bi-newspaper"></i> News</span>
             <h1>News & Announcements</h1>
-            <p className="page-header-desc">Stay updated with the latest news and announcements from the Municipality of Solano</p>
+            <p className="page-header-desc">Stay updated with the latest news and announcements from the {labels.lguTypeLabel} of {lguName}</p>
           </div>
         </div>
       </section>

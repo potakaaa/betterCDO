@@ -2,31 +2,19 @@
 
 import { useState, useMemo } from 'react';
 
-// Import DPWH projects data
+// Sample DPWH projects data - replace with actual data from your LGU
+// Data can be sourced from DPWH Transparency Portal (transparency.dpwh.gov.ph)
 const dpwhData = {
     summary: {
-        totalProjects: 63,
-        totalCost: 409494730.55,
-        completedProjects: 60,
-        ongoingProjects: 3,
+        totalProjects: 0,
+        totalCost: 0,
+        completedProjects: 0,
+        ongoingProjects: 0,
     },
     projects: [
-        { id: '17BI0035', name: 'Rehabilitation/Improvement of Curifang Flood Control', location: 'Brgy. Curifang, Solano', category: 'Flood Control and Drainage', contractor: 'Jann-Norris Construction', cost: 43463616.27, status: 100, date: '2018-01-31' },
-        { id: '17BI0037', name: 'Rehabilitation/Improvement of Bangar Flood Control', location: 'Brgy. Bangar, Solano', category: 'Flood Control and Drainage', contractor: 'Jann-Norris Construction', cost: 43592806.92, status: 100, date: '2018-02-15' },
-        { id: '17BI0036', name: 'Rehabilitation/Improvement of Dadap Flood Control', location: 'Brgy. Dadap, Solano', category: 'Flood Control and Drainage', contractor: 'Jann-Norris Construction', cost: 43374131.72, status: 100, date: '2018-01-29' },
-        { id: '18BI0068', name: 'Daang Maharlika Road Widening K0272-K0273', location: 'Solano, Nueva Vizcaya', category: 'Roads', contractor: 'R.O. Builders Corp.', cost: 39750749.86, status: 100, date: '2019-03-25' },
-        { id: '18BI0028', name: 'Construction of Multi-Purpose Building (Pasalubong Center)', location: 'Poblacion, Solano', category: 'Buildings', contractor: 'E S De Guzman Construction', cost: 4748316.66, status: 100, date: '2018-08-13' },
-        { id: '19BI0028', name: 'Construction of Multi-Purpose Building (Completion)', location: 'Brgy. Quezon, Solano', category: 'Buildings', contractor: 'E S De Guzman Construction', cost: 19800000.00, status: 100, date: '2019-11-21' },
-        { id: '16BI0006', name: "Bascaran Nat'l High School", location: 'Solano, Nueva Vizcaya', category: 'Buildings', contractor: 'E S De Guzman Construction', cost: 15913526.14, status: 100, date: '2017-04-23' },
-        { id: '16BI0007', name: "Uddiawan Nat'l High School", location: 'Solano, Nueva Vizcaya', category: 'Buildings', contractor: 'BRG Construction', cost: 12808288.53, status: 100, date: '2017-01-28' },
-        { id: '17BI0117', name: 'Solano North ES', location: 'Solano, Nueva Vizcaya', category: 'Buildings', contractor: 'Jovic Construction', cost: 2985000.00, status: 100, date: '2018-04-20' },
-        { id: '22BI0078', name: 'Concreting of Brgy. Communal FMR', location: 'Brgy. Communal, Solano', category: 'Roads', contractor: 'Dricholiu Construction', cost: 11940000.00, status: 100, date: '2022-11-13' },
-        { id: '21BI0004', name: 'Concreting of Wacal-Bangaan Road', location: 'Solano, Nueva Vizcaya', category: 'Roads', contractor: 'Framada Construction', cost: 4949771.92, status: 100, date: '2021-05-28' },
-        { id: '21BI0013', name: 'Concreting of Road in Purok 5, Bagahabag', location: 'Brgy. Bagahabag, Solano', category: 'Roads', contractor: 'Q.C.D. Construction', cost: 4950000.00, status: 100, date: '2021-09-11' },
-        { id: '23BI0006', name: 'Construction of Solar Water System', location: 'Solano, Nueva Vizcaya', category: 'Water Supply', contractor: 'Mighty Construction', cost: 9800000.00, status: 100, date: '2024-03-08' },
-        { id: '23BI0044', name: 'MPB Uddiawan National High School', location: 'Brgy. Uddiawan, Solano', category: 'Buildings', contractor: 'BRG Construction', cost: 5370984.13, status: 59.86, date: null },
-        { id: '25BI0058', name: 'Construction of MPB, San Luis', location: 'Brgy. San Luis, Solano', category: 'Buildings', contractor: 'Tamrhey Construction', cost: 5376247.97, status: 50.43, date: null },
-        { id: '25BI0071', name: 'Completion of MPB, Uddiawan', location: 'Brgy. Uddiawan, Solano', category: 'Buildings', contractor: 'Tamrhey Construction', cost: 5361050.00, status: 84.66, date: null },
+        { id: 'SAMPLE-001', name: 'Sample Road Improvement Project', location: 'Sample Location', category: 'Roads', contractor: 'Sample Contractor', cost: 0, status: 100, date: '2024-01-01' },
+        { id: 'SAMPLE-002', name: 'Sample Flood Control Project', location: 'Sample Location', category: 'Flood Control and Drainage', contractor: 'Sample Contractor', cost: 0, status: 100, date: '2024-02-01' },
+        { id: 'SAMPLE-003', name: 'Sample Building Construction', location: 'Sample Location', category: 'Buildings', contractor: 'Sample Contractor', cost: 0, status: 50, date: null },
     ],
 };
 
@@ -85,19 +73,19 @@ export function DPWHProjectsTable() {
             {/* Summary Bar */}
             <div className="dpwh-summary-bar">
                 <div className="dpwh-summary-item">
-                    <span className="dpwh-summary-value">{dpwhData.summary.totalProjects}</span>
+                    <span className="dpwh-summary-value">{dpwhData.summary.totalProjects || dpwhData.projects.length}</span>
                     <span className="dpwh-summary-label">Projects</span>
                 </div>
                 <div className="dpwh-summary-item">
-                    <span className="dpwh-summary-value">₱{(dpwhData.summary.totalCost / 1000000).toFixed(1)}M</span>
+                    <span className="dpwh-summary-value">₱{((dpwhData.summary.totalCost || dpwhData.projects.reduce((sum, p) => sum + p.cost, 0)) / 1000000).toFixed(1)}M</span>
                     <span className="dpwh-summary-label">Total Investment</span>
                 </div>
                 <div className="dpwh-summary-item">
-                    <span className="dpwh-summary-value">{dpwhData.summary.completedProjects}</span>
+                    <span className="dpwh-summary-value">{dpwhData.summary.completedProjects || dpwhData.projects.filter(p => p.status === 100).length}</span>
                     <span className="dpwh-summary-label">Completed</span>
                 </div>
                 <div className="dpwh-summary-item">
-                    <span className="dpwh-summary-value">{dpwhData.summary.ongoingProjects}</span>
+                    <span className="dpwh-summary-value">{dpwhData.summary.ongoingProjects || dpwhData.projects.filter(p => p.status < 100).length}</span>
                     <span className="dpwh-summary-label">Ongoing</span>
                 </div>
             </div>
@@ -178,6 +166,10 @@ export function DPWHProjectsTable() {
                     <span className="dpwh-end-msg">Showing all {filteredProjects.length} projects</span>
                 </div>
             )}
+
+            <p style={{ textAlign: 'center', color: 'var(--color-text-light)', fontSize: '0.9rem', marginTop: 'var(--spacing-md)' }}>
+                <i className="bi bi-info-circle"></i> Sample data — replace with actual DPWH projects from your LGU via public/data/dpwh-projects.json
+            </p>
         </div>
     );
 }

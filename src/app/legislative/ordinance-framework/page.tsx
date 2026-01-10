@@ -1,9 +1,7 @@
-import Link from 'next/link';
+'use client';
 
-export const metadata = {
-  title: 'Ordinance Framework | BetterSolano.org',
-  description: 'Browse municipal ordinances enacted by the Sangguniang Bayan of Solano, Nueva Vizcaya.',
-};
+import Link from 'next/link';
+import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 const ordinanceCategories = [
   { icon: 'bi-cash-coin', label: 'Revenue & Taxation' },
@@ -14,15 +12,18 @@ const ordinanceCategories = [
   { icon: 'bi-building', label: 'Zoning & Land Use' },
 ];
 
-const ordinances2025 = [
-  { no: '2025-05-II', title: 'An Ordinance Creating the Film Development Council of the Municipality of Solano, Nueva Vizcaya, Providing for Its Powers and Functions, and for Other Purposes', date: 'April 21, 2025' },
-  { no: '2025-04-II', title: 'An Ordinance Prohibiting the Entry of Nuisance Contraband Inside the Solano District Jail in the Municipality of Solano, Nueva Vizcaya, and Providing Penalties for Violation Thereof', date: 'April 21, 2025' },
-  { no: '2025-03-II', title: 'An Ordinance Creating the Solano Municipal Housing Board, Defining its Powers and Functions, and for Other Purposes', date: 'March 3, 2025' },
-  { no: '2025-02-II', title: 'An Ordinance Requiring All Households in the Municipality of Solano, Nueva Vizcaya to Comply with Zero Open Defecation (ZOD), Providing for Its Guidelines and Penalties for Violation and Appropriating Funds Therefor', date: 'February 25, 2025' },
-  { no: '2025-01-II', title: 'An Ordinance Revising the Gender and Development Code of the Municipality of Solano, Nueva Vizcaya and for Other Purposes, Subject to All Laws and Existing Rules and Regulations', date: 'February 25, 2025' },
+// Sample ordinances - replace with actual data from your LGU
+const sampleOrdinances = [
+  { no: '2025-05', title: 'An Ordinance Creating the Film Development Council, Providing for Its Powers and Functions', date: 'April 21, 2025' },
+  { no: '2025-04', title: 'An Ordinance Prohibiting the Entry of Contraband Items in Public Facilities', date: 'April 21, 2025' },
+  { no: '2025-03', title: 'An Ordinance Creating the Municipal Housing Board, Defining its Powers and Functions', date: 'March 3, 2025' },
+  { no: '2025-02', title: 'An Ordinance Requiring All Households to Comply with Zero Open Defecation (ZOD)', date: 'February 25, 2025' },
+  { no: '2025-01', title: 'An Ordinance Revising the Gender and Development Code', date: 'February 25, 2025' },
 ];
 
 export default function OrdinanceFrameworkPage() {
+  const { lguName, labels, site } = useSiteConfig();
+
   return (
     <>
       {/* Breadcrumbs */}
@@ -42,7 +43,7 @@ export default function OrdinanceFrameworkPage() {
           <div className="page-header-content">
             <span className="page-header-badge"><i className="bi bi-journal-text"></i> Legislative</span>
             <h1>Ordinance Framework</h1>
-            <p className="page-header-desc">Municipal ordinances enacted by the Sangguniang Bayan ng Solano</p>
+            <p className="page-header-desc">{labels.deptPrefix} ordinances enacted by the {labels.legislativeBody} ng {lguName}</p>
           </div>
         </div>
       </section>
@@ -54,7 +55,7 @@ export default function OrdinanceFrameworkPage() {
             <div className="info-card-icon"><i className="bi bi-info-circle"></i></div>
             <div className="info-card-content">
               <h3>What is an Ordinance?</h3>
-              <p>A municipal ordinance is a local law enacted by the Sangguniang Bayan (Municipal Council) that governs the municipality and its residents. Ordinances have the force and effect of law within the territorial jurisdiction of the municipality.</p>
+              <p>A {labels.lguTypeLabel.toLowerCase()} ordinance is a local law enacted by the {labels.legislativeBody} ({labels.legislativeBodyAbbr}) that governs the {labels.lguTypeLabel.toLowerCase()} and its residents. Ordinances have the force and effect of law within the territorial jurisdiction of the {labels.lguTypeLabel.toLowerCase()}.</p>
               <p>Ordinances may cover various subjects including but not limited to: taxation, business regulations, public safety, environmental protection, traffic management, and zoning.</p>
             </div>
           </div>
@@ -77,16 +78,16 @@ export default function OrdinanceFrameworkPage() {
         </div>
       </section>
 
-      {/* 2025 Ordinances Table */}
+      {/* Sample Ordinances Table */}
       <section className="section">
         <div className="container">
           <div className="text-center" style={{ marginBottom: 'var(--spacing-lg)' }}>
-            <h2 style={{ fontSize: '1.5rem', marginBottom: 'var(--spacing-xs)' }}>2025 Ordinances</h2>
-            <p style={{ color: 'var(--color-text-light)' }}>Official ordinances enacted by the Sangguniang Bayan ng Solano in 2025</p>
+            <h2 style={{ fontSize: '1.5rem', marginBottom: 'var(--spacing-xs)' }}>Sample Ordinances</h2>
+            <p style={{ color: 'var(--color-text-light)' }}>Sample ordinances — replace with actual data from your {labels.legislativeBody}</p>
           </div>
           <div className="table-responsive">
             <table className="data-table ordinance-table">
-              <caption className="sr-only">List of 2025 Ordinances from Sangguniang Bayan ng Solano</caption>
+              <caption className="sr-only">List of Ordinances from {labels.legislativeBody} ng {lguName}</caption>
               <thead>
                 <tr>
                   <th scope="col" style={{ width: '120px' }}>Ordinance No.</th>
@@ -95,7 +96,7 @@ export default function OrdinanceFrameworkPage() {
                 </tr>
               </thead>
               <tbody>
-                {ordinances2025.map((ord) => (
+                {sampleOrdinances.map((ord) => (
                   <tr key={ord.no}>
                     <td>{ord.no}</td>
                     <td>{ord.title}</td>
@@ -106,14 +107,9 @@ export default function OrdinanceFrameworkPage() {
             </table>
           </div>
           <div className="text-center" style={{ marginTop: 'var(--spacing-lg)' }}>
-            <a
-              href="https://sangguniangbayan.solano.gov.ph/index.php?page=legislative_framework_ord"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              <i className="bi bi-box-arrow-up-right"></i> View All Ordinances on SB Website
-            </a>
+            <p style={{ color: 'var(--color-text-light)', fontSize: '0.9rem' }}>
+              <i className="bi bi-info-circle"></i> Update this section with actual ordinances from your LGU&apos;s {labels.legislativeBody} website.
+            </p>
           </div>
         </div>
       </section>

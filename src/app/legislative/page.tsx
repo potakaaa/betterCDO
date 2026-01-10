@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function LegislativePage() {
   const [activeTab, setActiveTab] = useState('ordinances');
+  const { lguName, labels } = useSiteConfig();
 
   return (
     <>
@@ -23,9 +25,9 @@ export default function LegislativePage() {
       <section className="leg-hero">
         <div className="container">
           <div className="leg-hero-content">
-            <span className="leg-hero-badge"><i className="bi bi-bank2"></i> Sangguniang Bayan</span>
+            <span className="leg-hero-badge"><i className="bi bi-bank2"></i> {labels.legislativeBody}</span>
             <h1>Legislative Documents</h1>
-            <p>Ordinances and resolutions of the Sangguniang Bayan ng Solano</p>
+            <p>Ordinances and resolutions of the {labels.legislativeBody} ng {lguName}</p>
           </div>
         </div>
       </section>
@@ -38,7 +40,7 @@ export default function LegislativePage() {
               <div className="leg-category-icon"><i className="bi bi-journal-bookmark-fill"></i></div>
               <div className="leg-category-content">
                 <h2>Ordinance Framework</h2>
-                <p>Municipal ordinances enacted by the Sangguniang Bayan — local laws that govern the municipality and its residents.</p>
+                <p>{labels.deptPrefix} ordinances enacted by the {labels.legislativeBody} — local laws that govern the {labels.lguTypeLabel.toLowerCase()} and its residents.</p>
                 <span className="leg-category-link">Browse Ordinances <i className="bi bi-arrow-right"></i></span>
               </div>
             </Link>
@@ -46,7 +48,7 @@ export default function LegislativePage() {
               <div className="leg-category-icon"><i className="bi bi-file-earmark-ruled-fill"></i></div>
               <div className="leg-category-content">
                 <h2>Resolution Framework</h2>
-                <p>Resolutions passed by the Sangguniang Bayan expressing the will or opinion of the legislative body on various matters.</p>
+                <p>Resolutions passed by the {labels.legislativeBody} expressing the will or opinion of the legislative body on various matters.</p>
                 <span className="leg-category-link">Browse Resolutions <i className="bi bi-arrow-right"></i></span>
               </div>
             </Link>
@@ -89,17 +91,17 @@ export default function LegislativePage() {
           {activeTab === 'ordinances' && (
             <div className="leg-flow-container">
               {[
-                { num: '01', icon: 'bi-file-earmark-plus', title: 'File Proposed Ordinance', desc: 'Submit the proposed ordinance to the Sangguniang Bayan for consideration' },
+                { num: '01', icon: 'bi-file-earmark-plus', title: 'File Proposed Ordinance', desc: `Submit the proposed ordinance to the ${labels.legislativeBody} for consideration` },
                 { num: '02', icon: 'bi-book', title: 'First Reading / Referral to Committee', desc: 'Initial reading and assignment to the relevant committee for review' },
                 { num: '03', icon: 'bi-people', title: 'Public Hearing / Committee Action', desc: 'Committee conducts public hearing and deliberates on the proposed ordinance' },
-                { num: '04', icon: 'bi-file-text', title: 'Committee Report', desc: 'Committee submits findings and recommendations to the Sangguniang Bayan' },
+                { num: '04', icon: 'bi-file-text', title: 'Committee Report', desc: `Committee submits findings and recommendations to the ${labels.legislativeBody}` },
                 { num: '05', icon: 'bi-journal-text', title: 'Second Reading', desc: 'Detailed discussion and debate on the proposed ordinance' },
-                { num: '06', icon: 'bi-check2-square', title: 'Third and Final Reading', desc: 'Final voting on the proposed ordinance by the Sangguniang Bayan' },
-                { num: '07', icon: 'bi-calendar-check', title: "10-Day Mayor's Approval", desc: 'Mayor reviews and approves the enacted ordinance within 10 days' },
+                { num: '06', icon: 'bi-check2-square', title: 'Third and Final Reading', desc: `Final voting on the proposed ordinance by the ${labels.legislativeBody}` },
+                { num: '07', icon: 'bi-calendar-check', title: `10-Day ${labels.leaderTitle}'s Approval`, desc: `${labels.leaderTitle} reviews and approves the enacted ordinance within 10 days` },
                 { num: '08', icon: 'bi-send', title: '3-Day Submission to SP', desc: 'Submit approved ordinance to Sangguniang Panlalawigan for review within 3 days' },
                 { num: '09', icon: 'bi-hourglass-split', title: 'SP Review Period', desc: '60-day review for appropriation ordinances; 30-day review for others' },
                 { num: '10', icon: 'bi-megaphone', title: 'Posting / Publication', desc: 'Public posting and publication of the approved ordinance' },
-                { num: '11', icon: 'bi-rocket-takeoff', title: 'Implementation', desc: 'Ordinance takes effect and is enforced within the municipality', final: true },
+                { num: '11', icon: 'bi-rocket-takeoff', title: 'Implementation', desc: `Ordinance takes effect and is enforced within the ${labels.lguTypeLabel.toLowerCase()}`, final: true },
               ].map((step) => (
                 <div key={step.num} className={`leg-flow-step ${step.final ? 'leg-flow-final' : ''}`}>
                   <div className={`leg-flow-card ${step.final ? 'leg-flow-card-final' : ''}`}>
@@ -117,8 +119,8 @@ export default function LegislativePage() {
           {activeTab === 'resolutions' && (
             <div className="leg-flow-container">
               {[
-                { num: '01', icon: 'bi-file-earmark-plus', title: 'File Proposed Resolution', desc: 'Submit the proposed resolution to the Sangguniang Bayan' },
-                { num: '02', icon: 'bi-calendar-event', title: 'Inclusion in Session Agenda', desc: 'Resolution is scheduled for inclusion in the Sangguniang Bayan session' },
+                { num: '01', icon: 'bi-file-earmark-plus', title: 'File Proposed Resolution', desc: `Submit the proposed resolution to the ${labels.legislativeBody}` },
+                { num: '02', icon: 'bi-calendar-event', title: 'Inclusion in Session Agenda', desc: `Resolution is scheduled for inclusion in the ${labels.legislativeBody} session` },
                 { num: '03', icon: 'bi-people-fill', title: 'Committee Meeting / Approval', desc: 'Committee reviews and approves the proposed resolution' },
                 { num: '04', icon: 'bi-printer', title: 'Final Draft Printing', desc: 'Legislative staff prepares and prints the final draft of the resolution' },
                 { num: '05', icon: 'bi-pen', title: 'Official Signing', desc: 'Secretary to the Sanggunian and Presiding Officer sign the resolution' },
@@ -145,13 +147,13 @@ export default function LegislativePage() {
             <div className="leg-info-header">
               <span className="leg-info-tag"><i className="bi bi-info-circle-fill"></i> About</span>
               <h2>Understanding Local Legislation</h2>
-              <p>Learn about the legislative process of the Sangguniang Bayan</p>
+              <p>Learn about the legislative process of the {labels.legislativeBody}</p>
             </div>
             <div className="leg-info-cards">
               <div className="leg-info-card">
                 <div className="leg-info-card-icon"><i className="bi bi-journal-bookmark"></i></div>
                 <h3>Ordinances</h3>
-                <p>Local laws with permanent and general application that require compliance from residents and businesses within the municipality.</p>
+                <p>Local laws with permanent and general application that require compliance from residents and businesses within the {labels.lguTypeLabel.toLowerCase()}.</p>
               </div>
               <div className="leg-info-card">
                 <div className="leg-info-card-icon"><i className="bi bi-file-earmark-text"></i></div>
@@ -161,7 +163,7 @@ export default function LegislativePage() {
               <div className="leg-info-card">
                 <div className="leg-info-card-icon"><i className="bi bi-people"></i></div>
                 <h3>Public Participation</h3>
-                <p>Citizens can attend Sangguniang Bayan sessions and participate in public hearings for proposed ordinances.</p>
+                <p>Citizens can attend {labels.legislativeBody} sessions and participate in public hearings for proposed ordinances.</p>
               </div>
               <div className="leg-info-card">
                 <div className="leg-info-card-icon"><i className="bi bi-shield-check"></i></div>

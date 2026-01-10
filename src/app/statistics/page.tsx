@@ -10,10 +10,10 @@ import {
   EconomicSectorsChart,
   KeyIndicatorsTrendChart
 } from '@/components/charts/Charts';
-import { useSite } from '@/contexts/SiteConfigContext';
+import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function StatisticsPage() {
-  const { municipality, province } = useSite();
+  const { site, statistics, labels, lguName, fullLocation } = useSiteConfig();
 
   useEffect(() => {
     // Animation on scroll
@@ -49,9 +49,9 @@ export default function StatisticsPage() {
       <section className="stats-hero">
         <div className="container">
           <div className="stats-hero-content">
-            <span className="stats-hero-badge"><i className="bi bi-bar-chart-fill"></i> Municipal Data</span>
-            <h1>Municipal Statistics</h1>
-            <p>Data and statistics about {municipality}, {province}</p>
+            <span className="stats-hero-badge"><i className="bi bi-bar-chart-fill"></i> {labels.lguTypeLabel} Data</span>
+            <h1>{labels.lguTypeLabel} Statistics</h1>
+            <p>Data and statistics about {fullLocation}</p>
           </div>
         </div>
       </section>
@@ -62,27 +62,27 @@ export default function StatisticsPage() {
           <div className="metrics-grid">
             <div className="metric-card" data-delay="0">
               <div className="metric-icon"><i className="bi bi-people-fill"></i></div>
-              <div className="metric-value">69,296</div>
+              <div className="metric-value">{statistics.population.count > 0 ? statistics.population.count.toLocaleString() : '—'}</div>
               <div className="metric-label">Population</div>
-              <div className="metric-source">2024 Census</div>
+              <div className="metric-source">{statistics.population.year} {statistics.population.source}</div>
             </div>
             <div className="metric-card" data-delay="100">
               <div className="metric-icon"><i className="bi bi-geo-alt-fill"></i></div>
-              <div className="metric-value">22</div>
-              <div className="metric-label">Barangays</div>
-              <div className="metric-source">Administrative Units</div>
+              <div className="metric-value">{statistics.subdivisions.count > 0 ? statistics.subdivisions.count : '—'}</div>
+              <div className="metric-label">{labels.subdivisionTypePlural}</div>
+              <div className="metric-source">{statistics.subdivisions.source}</div>
             </div>
             <div className="metric-card" data-delay="200">
               <div className="metric-icon"><i className="bi bi-rulers"></i></div>
-              <div className="metric-value">162.70</div>
-              <div className="metric-label">Land Area (km²)</div>
-              <div className="metric-source">Total Municipal Area</div>
+              <div className="metric-value">{statistics.landArea.value > 0 ? statistics.landArea.value : '—'}</div>
+              <div className="metric-label">Land Area ({statistics.landArea.unit})</div>
+              <div className="metric-source">{statistics.landArea.source}</div>
             </div>
             <div className="metric-card" data-delay="300">
               <div className="metric-icon"><i className="bi bi-award-fill"></i></div>
-              <div className="metric-value">1st</div>
+              <div className="metric-value">{statistics.incomeClass.class || '—'}</div>
               <div className="metric-label">Income Class</div>
-              <div className="metric-source">Municipality Classification</div>
+              <div className="metric-source">{statistics.incomeClass.source}</div>
             </div>
           </div>
         </div>
@@ -332,8 +332,8 @@ export default function StatisticsPage() {
         <div className="container">
           <div className="section-header-minimal">
             <span className="section-tag"><i className="bi bi-trophy-fill"></i> Competitiveness</span>
-            <h2>Competitive Index</h2>
-            <p>Cities and Municipalities Competitiveness Index (CMCI) Performance 2016-2024</p>
+            <h2>{lguName} Competitive Index</h2>
+            <p>Cities and Municipalities Competitiveness Index (CMCI) Performance</p>
           </div>
 
           {/* Pillar Selection Tabs */}

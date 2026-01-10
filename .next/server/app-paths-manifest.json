@@ -1,0 +1,9 @@
+{
+  "/government/page": "app/government/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/statistics/page": "app/statistics/page.js",
+  "/page": "app/page.js",
+  "/budget/page": "app/budget/page.js",
+  "/services/page": "app/services/page.js",
+  "/legislative/page": "app/legislative/page.js"
+}

@@ -2,9 +2,14 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSiteConfig } from '@/contexts/SiteConfigContext';
 
 export default function FAQPage() {
   const { t } = useLanguage();
+  const { lguName, getSiteTitle, getVolunteerEmail, getHallName } = useSiteConfig();
+  const siteTitle = getSiteTitle();
+  const volunteerEmail = getVolunteerEmail();
+  const hallName = getHallName();
 
   return (
     <>
@@ -41,9 +46,9 @@ export default function FAQPage() {
               </div>
               <div className="faq-list">
                 <details className="faq-accordion">
-                  <summary>What are the office hours of the Municipal Hall?</summary>
+                  <summary>What are the office hours of the {hallName}?</summary>
                   <div className="faq-answer">
-                    <p>The Municipal Hall is open Monday to Friday, 8:00 AM to 5:00 PM, with a lunch break from 12:00 PM to 1:00 PM. We are closed on weekends and national/local holidays.</p>
+                    <p>The {hallName} is open Monday to Friday, 8:00 AM to 5:00 PM, with a lunch break from 12:00 PM to 1:00 PM. We are closed on weekends and national/local holidays.</p>
                   </div>
                 </details>
                 <details className="faq-accordion">
@@ -71,7 +76,7 @@ export default function FAQPage() {
                 <details className="faq-accordion">
                   <summary>How long does it take to get a birth certificate?</summary>
                   <div className="faq-answer">
-                    <p>For birth certificates registered in Solano, it typically takes 15-30 minutes while you wait, provided the record is readily available.</p>
+                    <p>For birth certificates registered in {lguName}, it typically takes 15-30 minutes while you wait, provided the record is readily available.</p>
                   </div>
                 </details>
                 <details className="faq-accordion">
@@ -108,7 +113,7 @@ export default function FAQPage() {
                   </div>
                 </details>
                 <details className="faq-accordion">
-                  <summary>What do I need to start a new business in Solano?</summary>
+                  <summary>What do I need to start a new business in {lguName}?</summary>
                   <div className="faq-answer">
                     <p>To start a new business, you&apos;ll need:</p>
                     <ul>
@@ -140,7 +145,7 @@ export default function FAQPage() {
                 <details className="faq-accordion">
                   <summary>How can I pay my real property tax?</summary>
                   <div className="faq-answer">
-                    <p>Visit the Municipal Treasurer&apos;s Office at the Municipal Hall with your Tax Declaration or latest Official Receipt. Payment is in cash. Property taxes are due quarterly, but you may pay annually to avail of discounts.</p>
+                    <p>Visit the Municipal Treasurer&apos;s Office at the {hallName} with your Tax Declaration or latest Official Receipt. Payment is in cash. Property taxes are due quarterly, but you may pay annually to avail of discounts.</p>
                   </div>
                 </details>
               </div>
@@ -184,13 +189,13 @@ export default function FAQPage() {
                 <details className="faq-accordion">
                   <summary>I found a broken link or error on this website. How do I report it?</summary>
                   <div className="faq-answer">
-                    <p>Thank you for helping us improve! Please send us message at <a href="mailto:volunteer@bettersolano.org">volunteer@bettersolano.org</a> and write &quot;Website Issue&quot; as the subject. Describe the problem and include the page URL if possible.</p>
+                    <p>Thank you for helping us improve! Please send us message at <a href={`mailto:${volunteerEmail}`}>{volunteerEmail}</a> and write &quot;Website Issue&quot; as the subject. Describe the problem and include the page URL if possible.</p>
                   </div>
                 </details>
                 <details className="faq-accordion">
                   <summary>Is this website mobile-friendly?</summary>
                   <div className="faq-answer">
-                    <p>Yes! Better Solano is fully responsive and optimized for mobile phones, tablets, and desktop computers.</p>
+                    <p>Yes! Better {lguName} is fully responsive and optimized for mobile phones, tablets, and desktop computers.</p>
                   </div>
                 </details>
               </div>
@@ -200,15 +205,14 @@ export default function FAQPage() {
             <div className="faq-category">
               <div className="faq-category-header">
                 <i className="bi bi-person-badge-fill"></i>
-                <h2>About the Developer</h2>
+                <h2>About This Project</h2>
               </div>
               <div className="faq-list">
                 <details className="faq-accordion">
-                  <summary>Who developed Better Solano?</summary>
+                  <summary>Who developed {siteTitle}?</summary>
                   <div className="faq-answer">
-                    <p><a href="https://ramonloganjr.com/" target="_blank" rel="noopener noreferrer">Ramon Logan Jr.</a> is the developer behind BetterSolano.org. Based in the United Arab Emirates, he works in IT and practices full-stack development, helping build practical digital solutions in web development, design, cloud services, and cybersecurity. He also started <a href="https://hellopinas.com" target="_blank" rel="noopener noreferrer">HelloPinas.com</a>, a small cloud-based solutions initiative.</p>
-                    <p>Ramon contributes to <a href="https://bettergov.ph" target="_blank" rel="noopener noreferrer">BetterGov.ph</a>, a volunteer-driven civic-tech effort focused on improving access to local government information and services in the Philippines. He is also an individual participant of the <a href="https://openjsf.org/" target="_blank" rel="noopener noreferrer">OpenJS Foundation</a>, a nonprofit supporting open-source JavaScript communities worldwide.</p>
-                    <p>Ramon has made the Solano Project open source under MIT | CC BY 4.0 to empower community-driven development, and contributions are warmly welcomed from everyone; whether you are a developer, data researcher, designer, content writer, translator, or a concerned citizen of Solano, your participation helps shape the project for all.</p>
+                    <p>This website is based on the <a href="https://github.com/BetterSolano/bettersolano" target="_blank" rel="noopener noreferrer">BetterSolano</a> project, originally developed by <a href="https://ramonloganjr.com/" target="_blank" rel="noopener noreferrer">Ramon Logan Jr.</a> as part of the <a href="https://bettergov.ph" target="_blank" rel="noopener noreferrer">BetterGov.ph</a> civic-tech initiative.</p>
+                    <p>The project is open source under MIT | CC BY 4.0 to empower community-driven development. Contributions are warmly welcomed from everyone — whether you are a developer, data researcher, designer, content writer, translator, or a concerned citizen.</p>
                   </div>
                 </details>
               </div>
