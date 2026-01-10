@@ -16,6 +16,10 @@ A modern, templated government portal for Philippine Local Government Units (LGU
 - **Dynamic Content**: Statistics, officials, barangays/municipalities, hotlines, and history from config
 - **SEO Optimized**: Dynamic metadata based on LGU configuration
 
+## Tech Stack
+
+- **Next.js 14** • **React 18** • **TypeScript**
+
 ## Quick Start
 
 ### 1. Clone and Install
