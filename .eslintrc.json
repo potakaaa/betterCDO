@@ -1,11 +1,13 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "next/typescript",
-    "eslint:recommended"
+    "next/typescript"
   ],
   "rules": {
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@next/next/no-css-tags": "warn",
+    "@next/next/no-page-custom-font": "warn",
+    "@next/next/no-img-element": "warn"
   }
 }
