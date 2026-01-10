@@ -1,68 +1,79 @@
-# Contributing to BetterSolano.org
+# Contributing to BetterGov LGU Template
 
-Thank you for your interest in contributing to BetterSolano.org! This civic-tech project thrives on community participation. Whether you're a developer, designer, translator, or a concerned citizen of Solano, your contributions are welcome.
+Thank you for your interest in contributing! This civic-tech project thrives on community participation. Whether you're a developer, designer, translator, or a concerned citizen, your contributions are welcome.
 
-## Choosing a Version
+> **This is a template!** Feel free to fork, modify, and adapt this project for your own LGU. You can customize the design, add features, remove sections, or completely rebrand it to fit your community's needs. See the [LICENSE](LICENSE) for details.
 
-BetterSolano.org has two versions. Choose based on your preference:
+## Table of Contents
 
-| Version | Branch | Best For |
-|---------|--------|----------|
-| Static HTML | `main` | Quick fixes, content updates, contributors new to web development |
-| React + TypeScript | `react-typescript` | New features, complex UI, contributors familiar with React |
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [First-Time Contributors](#first-time-contributors)
+- [How to Contribute](#how-to-contribute)
+- [Development Workflow](#development-workflow)
+- [Code Guidelines](#code-guidelines)
+- [Pull Request Process](#pull-request-process)
+- [Community](#community)
 
-Both versions are actively maintained and contributions to either are welcome.
+## Tech Stack
 
-For detailed differences and migration guidance, see [MIGRATION.md](MIGRATION.md).
+- **Next.js 14** • **React 18** • **TypeScript**
 
 ## Getting Started
 
-### Static HTML Version
+### Prerequisites
 
-#### Prerequisites
+| Requirement | Version |
+|-------------|---------|
+| Node.js | v18+ |
+| npm | v9+ |
+| Git | Latest |
 
-- Node.js v16 or higher
-- npm v8 or higher
-- Python 3 (for local development server)
-- Git
-
-#### Setup
-
-```bash
-git clone https://github.com/BetterSolano/bettersolano.git
-cd bettersolano
-npm install
-npm run dev
-```
-
-Open http://localhost:8000 in your browser.
-
-### React + TypeScript Version
-
-#### Prerequisites
-
-- Node.js v18 or higher
-- npm v9 or higher
-- Git
-
-#### Setup
+### Setup
 
 ```bash
-git clone https://github.com/BetterSolano/bettersolano.git
-cd bettersolano
-git checkout react-typescript
-cd react-app
+# Clone the repository
+git clone https://github.com/BetterGov/bettergov-lgu-template.git
+cd bettergov-lgu-template
+
+# Install dependencies
 npm install
+
+# Run setup wizard (optional - for new LGU configuration)
+npm run setup-lgu
+
+# Start development server
 npm run dev
 ```
 
 Open http://localhost:3000 in your browser.
 
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run lint:fix` | Fix linting errors |
+| `npm run setup-lgu` | Run LGU setup wizard |
+
+## First-Time Contributors
+
+New to open source? Welcome! Here's how to get started:
+
+1. **Look for beginner-friendly issues** labeled `good first issue`
+2. **Ask questions** — open an issue or reach out on Discord
+3. **Start small** — documentation fixes and typos are valuable contributions
+
+> 💡 **Tip:** Read through the README and explore the codebase before diving in.
+
 ## How to Contribute
 
-### Reporting Bugs
+### 🐛 Reporting Bugs
 
-1. Check existing [issues](https://github.com/BetterSolano/bettersolano/issues) to avoid duplicates
+1. Check [existing issues](https://github.com/BetterGov/bettergov-lgu-template/issues) to avoid duplicates
 2. Create a new issue with:
    - Clear, descriptive title
    - Steps to reproduce
@@ -70,126 +81,162 @@ Open http://localhost:3000 in your browser.
    - Browser and device information
    - Screenshots if applicable
 
-### Suggesting Features
+### 💡 Suggesting Features
 
 1. Open an issue with the `enhancement` label
 2. Describe the feature and its benefit to users
 3. Include mockups or examples if possible
 
-### Submitting Code
+### 📝 Contribution Areas
 
-1. **Fork** the repository
-2. **Create** a feature branch
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Make** your changes
-4. **Test** on multiple browsers (Chrome, Firefox, Safari, Edge)
-5. **Commit** with a descriptive message
-   ```bash
-   git commit -m "Add: brief description of changes"
-   ```
-6. **Push** to your fork
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-7. **Open** a Pull Request
+| Area | Description | Labels |
+|------|-------------|--------|
+| Bug Fixes | Fix reported issues | `bug` |
+| Features | Implement new functionality | `enhancement` |
+| Translations | Add/improve Filipino, Ilocano, or other languages | `translations` |
+| Design | Improve UI/UX and accessibility | `design` |
+| Documentation | Improve guides and comments | `documentation` |
+| Template Config | Enhance configuration options | `config` |
 
-### Commit Message Format
+## Development Workflow
+
+### 1. Fork & Clone
+
+```bash
+# Fork via GitHub, then clone your fork
+git clone https://github.com/YOUR_USERNAME/bettergov-lgu-template.git
+cd bettergov-lgu-template
+```
+
+### 2. Create a Branch
+
+```bash
+# Create a feature branch
+git checkout -b feature/your-feature-name
+
+# Or for bug fixes
+git checkout -b fix/issue-description
+```
+
+**Branch naming conventions:**
+- `feature/` — New features
+- `fix/` — Bug fixes
+- `docs/` — Documentation updates
+- `refactor/` — Code refactoring
+
+### 3. Make Changes
+
+- Write clean, readable code
+- Follow existing patterns
+- Test your changes locally
+
+### 4. Commit Your Changes
+
+```bash
+git add .
+git commit -m "feat: add new feature description"
+```
+
+**Commit message format:**
 
 ```
-Type: Brief description
+type: brief description
 
 Types:
-- Add: New feature or content
-- Fix: Bug fix
-- Update: Changes to existing feature
-- Remove: Removed feature or content
-- Docs: Documentation changes
-- Style: CSS/formatting changes (no logic change)
-- Refactor: Code restructuring
+- feat:     New feature
+- fix:      Bug fix
+- docs:     Documentation changes
+- style:    Formatting (no logic change)
+- refactor: Code restructuring
+- test:     Adding tests
+- chore:    Maintenance tasks
 ```
 
-## Contribution Areas
+**Examples:**
+```
+feat: add dark mode toggle to header
+fix: resolve mobile navigation overflow
+docs: update setup instructions in README
+refactor: simplify translation hook logic
+```
 
-| Area | Description |
-|------|-------------|
-| Bug Fixes | Fix reported issues |
-| Features | Implement new functionality |
-| Content | Update municipal service information |
-| Translations | Translate to Filipino or Ilocano |
-| Design | Improve UI/UX and accessibility |
-| Data | Verify and update statistics |
-| Documentation | Improve guides and comments |
-| API Integration | Connect real-time data sources |
-| Data Visualization | Enhance charts and graphs |
+### 5. Push & Create PR
+
+```bash
+git push origin feature/your-feature-name
+```
+
+Then open a Pull Request on GitHub.
 
 ## Code Guidelines
 
-### HTML
-- Use semantic HTML5 elements
-- Include proper ARIA labels for accessibility
-- Validate HTML before submitting
+### TypeScript / React
+
+- Use TypeScript types properly — avoid `any`
+- Keep components modular and reusable
+- Use meaningful variable and function names
+- Follow existing code patterns
 
 ### CSS
-- Follow existing naming conventions
-- Use CSS custom properties (variables)
-- Ensure responsive design
-- Test on mobile devices
 
-### JavaScript
-- Keep vanilla JS (no frameworks unless approved)
-- Use meaningful variable and function names
-- Add comments for complex logic
-- Avoid global variables
+- Use CSS custom properties (variables)
+- Follow mobile-first responsive design
+- Test on multiple screen sizes
+
+### Configuration
+
+- Keep config files in `config/` directory
+- Document any new configuration options
+- Ensure backward compatibility
 
 ### Accessibility
+
 - Maintain WCAG 2.1 compliance
 - Include alt text for images
 - Ensure keyboard navigation works
-- Test with screen readers if possible
-
-### Data Accuracy
-- Only use data from official government sources
-- Include source attribution
-- Verify information before submitting
-- Do not include unverified or speculative data
+- Use semantic HTML elements
 
 ## Pull Request Process
 
-1. Ensure your code follows the style guidelines
-2. Update documentation if needed
-3. Test thoroughly before submitting
-4. Fill out the PR template completely
-5. Link related issues
-6. Wait for review and address feedback
+### Before Submitting
 
-## Review Criteria
+- [ ] Code follows style guidelines
+- [ ] Changes tested locally
+- [ ] No linting errors (`npm run lint`)
+- [ ] Documentation updated if needed
 
-Pull requests are reviewed for:
+### PR Requirements
 
-- Code quality and style consistency
-- Functionality and bug-free operation
-- Accessibility compliance
-- Mobile responsiveness
-- Data accuracy (for content changes)
-- Security considerations
+1. Fill out the PR template completely
+2. Link related issues (e.g., "Closes #123")
+3. Provide screenshots for UI changes
+4. Keep PRs focused — one feature/fix per PR
+
+### Review Criteria
+
+PRs are reviewed for:
+
+- ✅ Code quality and consistency
+- ✅ Functionality and bug-free operation
+- ✅ Accessibility compliance
+- ✅ Mobile responsiveness
+- ✅ Security considerations
 
 ## Community
 
-- **Discord:** [Join our community](https://discord.com/invite/qeSu7RJkjQ)
-- **Facebook:** [@bettersolano.org](https://www.facebook.com/bettersolano.org)
-- **LinkedIn:** [Connect with us](https://www.linkedin.com/company/bettersolano)
-- **Email:** volunteer@bettersolano.org
+| Platform | Link |
+|----------|------|
+| Discord | [Join our community](https://discord.com/invite/qeSu7RJkjQ) |
+| Website | [BetterGov.ph](https://bettergov.ph) |
 
-## Recognition
+### Recognition
 
 All contributors are recognized in our repository. Significant contributions may be highlighted on the website.
 
-## Questions?
+### Questions?
 
 Feel free to open an issue or reach out on Discord. We're happy to help!
 
 ---
 
-Thank you for helping make government information accessible to the people of Solano.
+**Thank you for helping make government information accessible to Filipino communities.** 🇵🇭
