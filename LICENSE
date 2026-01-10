@@ -29,7 +29,7 @@ This project is a fork and template adaptation of:
 
 **BetterSolano** (https://github.com/BetterSolano/bettersolano)
 - Original work by Ramon Logan Jr. and BetterSolano contributors
-- Licensed under MIT License (source code) and CC BY 4.0 (content)
+- Licensed under MIT License (source code) and CC BY 1.0 (content)
 
 ### Original Project Credits
 
@@ -45,10 +45,10 @@ This template version has been modified to:
 - Remove Solano-specific data and replace with placeholder configurations
 - Add setup wizard for easy customization
 
-### Content License (CC BY 4.0)
+### Content License (CC BY 1.0)
 
 Content derived from the original BetterSolano project is licensed under
-Creative Commons Attribution 4.0 International (CC BY 4.0).
+Creative Commons Attribution 1.0 Generic (CC BY 1.0).
 
 You are free to:
 - Share — copy and redistribute the material
@@ -57,4 +57,4 @@ You are free to:
 Under the following terms:
 - Attribution — You must give appropriate credit and indicate changes made
 
-Full license: https://creativecommons.org/licenses/by/4.0/
+Full license: https://creativecommons.org/licenses/by/1.0/

@@ -212,7 +212,7 @@ export default function FAQPage() {
                   <summary>Who developed {siteTitle}?</summary>
                   <div className="faq-answer">
                     <p>This website is based on the <a href="https://github.com/BetterSolano/bettersolano" target="_blank" rel="noopener noreferrer">BetterSolano</a> project, originally developed by <a href="https://ramonloganjr.com/" target="_blank" rel="noopener noreferrer">Ramon Logan Jr.</a> as part of the <a href="https://bettergov.ph" target="_blank" rel="noopener noreferrer">BetterGov.ph</a> civic-tech initiative.</p>
-                    <p>The project is open source under MIT | CC BY 4.0 to empower community-driven development. Contributions are warmly welcomed from everyone — whether you are a developer, data researcher, designer, content writer, translator, or a concerned citizen.</p>
+                    <p>The project is open source under MIT | CC BY 1.0 to empower community-driven development. Contributions are warmly welcomed from everyone — whether you are a developer, data researcher, designer, content writer, translator, or a concerned citizen.</p>
                   </div>
                 </details>
               </div>

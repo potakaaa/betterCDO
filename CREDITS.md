@@ -8,7 +8,7 @@ This project is built upon the work of many contributors and open-source project
 
 - **Repository**: [github.com/BetterSolano/bettersolano](https://github.com/BetterSolano/bettersolano)
 - **Website**: [bettersolano.org](https://bettersolano.org)
-- **License**: MIT (source code) + CC BY 4.0 (content)
+- **License**: MIT (source code) + CC BY 1.0 (content)
 
 BetterSolano.org is a community-driven platform that makes Solano's government information and public services more accessible, transparent, and easy to navigate.
 

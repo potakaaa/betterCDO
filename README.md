@@ -1,7 +1,7 @@
 # BetterGov LGU Template
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CC BY 4.0](https://img.shields.io/badge/Content-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![CC BY 1.0](https://img.shields.io/badge/Content-CC%20BY%201.0-blue.svg)](https://creativecommons.org/licenses/by/1.0/)
 
 A modern, templated government portal for Philippine Local Government Units (LGUs). This template supports both **municipalities** and **provinces**, automatically adapting terminology and structure based on your configuration.
 
@@ -251,7 +251,7 @@ This project is dual-licensed:
 | License | Applies To | Details |
 |---------|-----------|---------|
 | **MIT License** | Source Code | Free to use, modify, and distribute |
-| **CC BY 4.0** | Content | Attribution required for content reuse |
+| **CC BY 1.0** | Content | Attribution required for content reuse |
 
 See [LICENSE](LICENSE) for full details.
 

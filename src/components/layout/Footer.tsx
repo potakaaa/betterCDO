@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
         <div className="footer-bottom-new">
           <div className="footer-copyright">
-            <span>&copy; {currentYear} Better {lguName}. MIT | CC BY 4.0 All public information sourced from official government portals.</span>
+            <span>&copy; {currentYear} Better {lguName}. MIT | CC BY 1.0 All public information sourced from official government portals.</span>
             <span className="footer-version"><i className="bi bi-boxes"></i> Ver. 2.0.0</span>
           </div>
         </div>
