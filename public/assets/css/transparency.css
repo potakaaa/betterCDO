@@ -2,7 +2,7 @@
 
 /* Hero Section */
 .trans-hero {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
     padding: 60px 0 80px;
     text-align: center;
     position: relative;
@@ -105,7 +105,7 @@
 .metric-icon-income { background: linear-gradient(135deg, var(--color-success) 0%, #05c793 100%); }
 .metric-icon-expense { background: linear-gradient(135deg, var(--color-danger) 0%, #e63946 100%); }
 .metric-icon-net { background: linear-gradient(135deg, var(--color-info) 0%, #0099cc 100%); }
-.metric-icon-balance { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); }
+.metric-icon-balance { background: var(--color-primary); }
 
 .trans-metrics .metric-value {
     font-size: 1.75rem;
@@ -313,7 +313,7 @@ iture Section */
 .expenditure-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -355,7 +355,7 @@ iture Section */
 
 .expenditure-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-info) 100%);
+    background: var(--color-primary);
     border-radius: 4px;
     width: 0;
     transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -507,7 +507,7 @@ ct Card */
 .report-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -742,7 +742,7 @@ uarter Selection Tabs */
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     color: white;
     padding: 8px 20px;
     border-radius: 50px;

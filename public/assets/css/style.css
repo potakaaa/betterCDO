@@ -1122,7 +1122,7 @@ p {
 
 /* Page Header - Services & Other Pages */
 .page-header {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
     padding: var(--spacing-xl) 0;
     color: white;
 }
@@ -3294,7 +3294,7 @@ cklist with Icons - Proper Indentation */
 
 .poverty-rate-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-info) 100%);
+    background: var(--color-primary);
     border-radius: 4px;
     transition: width 1s ease;
 }
@@ -3663,7 +3663,7 @@ cklist with Icons - Proper Indentation */
 
 .barangay-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-info) 100%);
+    background: var(--color-primary);
     border-radius: 4px;
     transition: width 0.8s ease;
 }
@@ -4247,7 +4247,7 @@ cklist with Icons - Proper Indentation */
 
 .milestone-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-info) 100%);
+    background: var(--color-primary);
     border-radius: 3px;
     transition: width 0.8s ease;
 }
@@ -4505,7 +4505,7 @@ cklist with Icons - Proper Indentation */
 
 .economic-bar-business {
     width: 75%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-info) 100%);
+    background: var(--color-primary);
 }
 
 .economic-bar-agri {
@@ -6092,7 +6092,7 @@ cklist with Icons - Proper Indentation */
 .search-submit-btn {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #0044cc 100%);
+    background: var(--color-primary);
     color: white;
     border: none;
     border-radius: 10px;
@@ -6106,7 +6106,7 @@ cklist with Icons - Proper Indentation */
 }
 
 .search-submit-btn:hover {
-    background: linear-gradient(135deg, var(--color-primary-dark) 0%, #003399 100%);
+    background: var(--color-primary-dark);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 50, 160, 0.4);
 }

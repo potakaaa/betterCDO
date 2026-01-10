@@ -54,7 +54,7 @@ export default function GovernmentPage() {
       <section className="section" style={{ background: 'var(--color-bg-alt)' }}>
         <div className="container">
           <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'var(--color-primary)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
               <i className="bi bi-star-fill"></i> Executive Branch
             </span>
             <h3 style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>{labels.lguTypeLabel} Leadership</h3>
@@ -97,7 +97,7 @@ export default function GovernmentPage() {
       <section className="section">
         <div className="container">
           <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, var(--color-success) 0%, #05c793 100%)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'var(--color-primary)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
               <i className="bi bi-people-fill"></i> Legislative Branch
             </span>
             <h3 style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>{getLegislativeBody()} Members</h3>
@@ -141,7 +141,7 @@ export default function GovernmentPage() {
       <section className="section" style={{ background: 'var(--color-bg-alt)' }}>
         <div className="container">
           <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, var(--color-info) 0%, #0099cc 100%)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'var(--color-primary)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
               <i className="bi bi-building-fill"></i> {getDeptPrefix()} Offices
             </span>
             <h3 style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Department Heads &amp; Key Offices</h3>
@@ -171,7 +171,7 @@ export default function GovernmentPage() {
       <section className="section">
         <div className="container">
           <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'var(--color-primary)', color: 'white', padding: '8px 20px', borderRadius: '50px', fontSize: '0.875rem', marginBottom: 'var(--spacing-sm)' }}>
               <i className="bi bi-geo-alt-fill"></i> {getSubdivisionTypePlural()}
             </span>
             <h3 style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>{getSubdivisionTypePlural()} of {lguName}</h3>

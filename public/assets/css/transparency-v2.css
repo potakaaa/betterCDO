@@ -2,7 +2,7 @@
 
 /* Hero Section */
 .trans-hero-v2 {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
     padding: 48px 0 56px;
     text-align: center;
     position: relative;
@@ -661,7 +661,7 @@
 .resource-icon-v2 {
     width: 52px;
     height: 52px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     border-radius: 12px;
     display: flex;
     align-items: center;

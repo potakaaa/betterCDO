@@ -2,22 +2,10 @@
 
 /* Hero Section */
 .stats-hero {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
     padding: 48px 0 56px;
     text-align: center;
     position: relative;
-    overflow: hidden;
-}
-
-.stats-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.5;
 }
 
 .stats-hero-content {
@@ -94,7 +82,7 @@
 .metric-icon {
     width: 52px;
     height: 52px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -187,7 +175,7 @@
 }
 
 .finance-card-primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     color: white;
     border: none;
     box-shadow: 0 4px 16px rgba(0, 50, 160, 0.3);
@@ -343,7 +331,7 @@
 }
 
 .trend-stat-current {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     border: none;
     box-shadow: 0 4px 16px rgba(0, 50, 160, 0.25);
 }
@@ -483,7 +471,7 @@
 
 .bar-wrap .bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-info) 100%);
+    background: var(--color-primary);
     border-radius: 3px;
     width: 0;
     transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -547,7 +535,7 @@
 .economy-icon {
     width: 44px;
     height: 44px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -637,7 +625,7 @@
 
 .sector-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-info) 100%);
+    background: var(--color-primary);
     border-radius: 4px;
     width: 0;
     transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1108,7 +1096,7 @@
 .pillar-icon {
     width: 44px;
     height: 44px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -1216,7 +1204,7 @@
 
 .indicator-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     border-radius: 3px;
     width: 0;
     transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);

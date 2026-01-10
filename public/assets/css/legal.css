@@ -2,7 +2,7 @@
 
 /* Hero Section */
 .legal-hero {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
     padding: 60px 0;
     text-align: center;
 }
@@ -264,7 +264,7 @@ Contact Section */
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     color: white;
     padding: 14px 24px;
     border-radius: 8px;
