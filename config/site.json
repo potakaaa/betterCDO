@@ -1,11 +1,11 @@
 {
-  "lguType": "province",
-  "municipality": "",
+  "lguType": "municipality",
+  "municipality": "Cagayan De Oro City",
   "province": "Misamis Oriental",
   "region": "Region X (Northern Mindanao)",
   "siteId": "bettercdo",
   "domain": "bettercdo.org",
-  "tagline": "Your digital gateway to LGU Misamis Oriental services",
+  "tagline": "Your digital gateway to LGU Cagayan De Oro City services",
   "themeColor": "#1a5f2a",
   "contact": {
     "phone": "09365625994",
