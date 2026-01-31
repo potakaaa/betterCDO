@@ -5,6 +5,7 @@ export type LGUType = 'municipality' | 'province';
 export interface SiteConfig {
   lguType: LGUType;
   municipality: string;
+  nickname: string;
   province: string;
   region: string;
   siteId: string;
@@ -91,6 +92,7 @@ export interface DepartmentHead {
 export interface SubdivisionsConfig {
   type: 'barangay' | 'municipality' | 'city';
   count: number;
+  leader: string;
   items: Subdivision[];
 }
 
