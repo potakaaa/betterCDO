@@ -5,6 +5,7 @@ export type LGUType = 'municipality' | 'province';
 export interface SiteConfig {
   lguType: LGUType;
   municipality: string;
+  municipalityAcronym: string;
   province: string;
   region: string;
   siteId: string;

@@ -1,7 +1,7 @@
 import { Language, TranslationKeys } from '@/types';
 
 // Core translations - uses {{variable}} syntax for template interpolation
-// Variables: {{lguName}}, {{municipality}}, {{province}}, {{domain}}, {{lguType}}, {{leaderTitle}}, {{hallName}}
+// Variables: {{lguName}}, {{municipality}}, {{municipalityAcronym}}, {{province}}, {{domain}}, {{lguType}}, {{leaderTitle}}, {{hallName}}
 export const translations: Record<Language, TranslationKeys> = {
   en: {
     // Navigation
@@ -16,7 +16,7 @@ export const translations: Record<Language, TranslationKeys> = {
     'nav-sitemap': 'Sitemap',
 
     // Hero Section - uses template variables
-    'hero-welcome': 'Welcome to Better{{lguName}}.org',
+    'hero-welcome': 'Welcome to Better{{lguAcronym}}.org',
     'hero-subtitle': 'Access government services, information, and resources for the people of {{municipality}}, {{province}}.',
 
     // Popular Services

@@ -65,6 +65,10 @@ export function getLGUName(site: SiteConfig): string {
   return site.lguType === 'province' ? site.province : site.municipality;
 }
 
+export function getLGUAcronym(site: SiteConfig): string {
+  return site.municipalityAcronym;
+}
+
 /**
  * Get the full location string
  * - For municipality: "Municipality, Province"

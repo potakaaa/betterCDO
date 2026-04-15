@@ -1,6 +1,7 @@
 {
-  "lguType": "Highly Urbanized City",
+  "lguType": "municipality",
   "municipality": "Cagayan De Oro City",
+  "municipalityAcronym": "CDO",
   "province": "Misamis Oriental",
   "region": "Region X (Northern Mindanao)",
   "siteId": "bettercdo",

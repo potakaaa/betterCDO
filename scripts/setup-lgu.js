@@ -57,8 +57,10 @@ async function main() {
   
   const province = await question(`Province name (e.g., Quezon): `);
   const region = await question('Region (e.g., Region IV-A (CALABARZON)): ');
+  const municipalityAcronym = await question('LGU Acronym (e.g. CDO): ');
   
   const lguName = lguType === 'municipality' ? municipality : province;
+  const lguAcronym = municipalityAcronym;
   const siteId = await question(`Site ID (e.g., better${lguName.toLowerCase().replace(/\s+/g, '')}): `) 
     || `better${lguName.toLowerCase().replace(/\s+/g, '')}`;
   const domain = await question(`Domain (e.g., ${siteId}.org): `) || `${siteId}.org`;
@@ -105,6 +107,7 @@ async function main() {
   const siteConfig = {
     lguType,
     municipality,
+    lguAcronym,
     province,
     region,
     siteId,
