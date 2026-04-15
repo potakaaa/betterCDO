@@ -30,7 +30,7 @@ export default function Header() {
 
   const pathname = usePathname();
   const { language, setLanguage, t } = useLanguage();
-  const { site, lguName } = useSiteConfig();
+  const { site, lguAcronym, lguName } = useSiteConfig();
 
   // Normalize path using Next.js pathname logic
   // pathname in Next.js usually doesn't have trailing slash unless root,
@@ -139,7 +139,7 @@ export default function Header() {
                 className='h-12 w-12 mr-3'
               />
               <div>
-                <div className='text-black font-bold'>Better{lguName}</div>
+                <div className='text-black font-bold'>Better{lguAcronym}</div>
                 <div className='text-xs text-gray-800'>
                   A community-run portal for the Philippines
                 </div>
