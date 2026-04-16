@@ -2,22 +2,22 @@
   "emergency": [
     {
       "id": "police",
-      "name": "Police Station",
-      "number": "",
+      "name": "Police Station (COCPO HQ)",
+      "number": "0917-771-3663",
       "icon": "bi-shield-fill",
       "category": "emergency"
     },
     {
       "id": "fire",
-      "name": "Fire Station",
-      "number": "",
+      "name": "Fire Station (BFP)",
+      "number": "911",
       "icon": "bi-fire",
       "category": "emergency"
     },
     {
       "id": "mdrrmo",
-      "name": "MDRRMO",
-      "number": "",
+      "name": "MDRRMO (Oro Rescue)",
+      "number": "0917-770-5044",
       "icon": "bi-exclamation-triangle-fill",
       "category": "emergency"
     }
@@ -25,15 +25,15 @@
   "medical": [
     {
       "id": "rhu",
-      "name": "Rural Health Unit",
-      "number": "",
+      "name": "City Health Office",
+      "number": "(088) 880-3199",
       "icon": "bi-hospital",
       "category": "medical"
     },
     {
       "id": "red-cross",
-      "name": "Red Cross",
-      "number": "",
+      "name": "Red Cross (CDO Chapter)",
+      "number": "(088) 856-8855",
       "icon": "bi-plus-circle-fill",
       "category": "medical"
     }
@@ -42,21 +42,21 @@
     {
       "id": "mayors-office",
       "name": "Mayor's Office",
-      "number": "",
+      "number": "0965-667-9604",
       "icon": "bi-building-fill",
       "category": "government"
     },
     {
       "id": "mswdo",
-      "name": "MSWDO",
-      "number": "",
+      "name": "CSWD",
+      "number": "0935-944-8560",
       "icon": "bi-heart-fill",
       "category": "government"
     },
     {
       "id": "dilg",
-      "name": "DILG",
-      "number": "",
+      "name": "DILG (CDO Field Office)",
+      "number": "(088) 859-0506",
       "icon": "bi-building",
       "category": "government"
     }
@@ -64,15 +64,15 @@
   "utilities": [
     {
       "id": "electric",
-      "name": "Electric Cooperative",
-      "number": "",
+      "name": "CEPALCO",
+      "number": "0917-319-4278",
       "icon": "bi-lightning-fill",
       "category": "utilities"
     },
     {
       "id": "water",
-      "name": "Water District",
-      "number": "",
+      "name": "COWD",
+      "number": "0906-007-0411",
       "icon": "bi-droplet-fill",
       "category": "utilities"
     }
