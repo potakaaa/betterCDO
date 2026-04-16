@@ -9,6 +9,7 @@ import {
 } from '@icons-pack/react-simple-icons';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { footerNavigation } from '@/data/navigation';
 import { useSiteConfig } from '@/contexts/SiteConfigContext';
@@ -54,9 +55,11 @@ const Footer: FC = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8'>
           <div className='col-span-1 md:col-span-2'>
             <div className='flex items-center mb-4'>
-              <img
+              <Image
                 src={logoPath}
                 alt={`Better ${lguName} Logo`}
+                width={48}
+                height={48}
                 className='h-12 w-12 mr-3'
               />
 
