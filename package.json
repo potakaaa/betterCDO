@@ -10,7 +10,9 @@
     "lint": "next lint",
     "setup-lgu": "node scripts/setup-lgu.js",
     "lint:fix": "next lint --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --max-warnings 0"
@@ -41,6 +43,7 @@
     "eslint-config-next": "^14.2.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "typescript": "^5.4.0"
+    "typescript": "^5.4.0",
+    "vitest": "^2.1.9"
   }
 }
