@@ -41,7 +41,7 @@ export default function TermsPage() {
             <span className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
               <i className="bi bi-file-earmark-text"></i> Legal
             </span>
-            <h1 className be for="text-3xl md:text-4xl font-bold text-white mb-4">Terms of Use</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Terms of Use</h1>
             <p className="text-lg text-white/90">Guidelines for using {siteTitle}</p>
           </div>
         </div>

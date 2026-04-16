@@ -8,6 +8,7 @@ import {
   XIcon,
 } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { mainNavigation } from '@/data/navigation';
@@ -30,7 +31,7 @@ export default function Header() {
 
   const pathname = usePathname();
   const { language, setLanguage, t } = useLanguage();
-  const { site, lguName, lguNickname } = useSiteConfig();
+  const { site, lguNickname } = useSiteConfig();
 
   // Normalize path using Next.js pathname logic
   // pathname in Next.js usually doesn't have trailing slash unless root,
@@ -133,9 +134,11 @@ export default function Header() {
         <div className='flex justify-between items-center py-4'>
           <div className='flex items-center'>
             <Link href='/' className='flex items-center'>
-              <img
+              <Image
                 src={site.logo?.main || '/logos/svg/BetterGov_Icon-Primary.svg'}
                 alt={`${lguNickname} Logo`}
+                width={48}
+                height={48}
                 className='h-12 w-12 mr-3'
               />
               <div>
