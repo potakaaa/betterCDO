@@ -192,7 +192,7 @@ export default function GovernmentPage() {
                     <i className={`bi ${dept.icon}`}></i>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-base font-semibold text-gray-900 mb-1">{dept.department}</h4>
+                    <h4 className="text-base font-semibold text-gray-900 mb-1">{dept.name}</h4>
                     <p className="text-sm text-gray-500 mb-3">{dept.description}</p>
                     <div className="space-y-1 text-xs text-gray-500">
                       {dept.phone && <span className="flex items-center gap-1"><i className="bi bi-telephone"></i> {dept.phone}</span>}

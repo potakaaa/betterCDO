@@ -1,17 +1,56 @@
 {
   "timeline": [
     {
-      "year": "",
-      "title": "Foundation",
-      "description": "The municipality was founded."
+      "year": "1571",
+      "title": "Early Spanish Recognition",
+      "description": "The area was recorded by the Spanish as an encomienda named Cagayan."
+    },
+    {
+      "year": "1622",
+      "title": "Spanish Mission Established",
+      "description": "Augustinian Recollect missionaries arrived and began settlement development."
+    },
+    {
+      "year": "1872",
+      "title": "Capital of Misamis",
+      "description": "Cagayan de Misamis was declared the permanent capital of Misamis Province."
+    },
+    {
+      "year": "1950",
+      "title": "City Charter",
+      "description": "The municipality became Cagayan de Oro City under Republic Act No. 521."
     }
   ],
   "facts": [
     {
       "id": "fact-1",
-      "title": "Historical Fact",
-      "description": "Add historical facts about the municipality here.",
+      "title": "Geographic Location",
+      "description": "Cagayan de Oro City is located along the northern coast of Mindanao, facing Macajalar Bay.",
       "icon": "bi-geo-alt-fill"
+    },
+    {
+      "id": "fact-2",
+      "title": "City Charter",
+      "description": "It became a chartered city on June 15, 1950 under Republic Act No. 521.",
+      "icon": "bi-calendar-event-fill"
+    },
+    {
+      "id": "fact-3",
+      "title": "Former Name",
+      "description": "The city was formerly known as Cagayan de Misamis during the Spanish period.",
+      "icon": "bi-bookmark-fill"
+    },
+    {
+      "id": "fact-4",
+      "title": "Nickname",
+      "description": "Cagayan de Oro is known as the “City of Golden Friendship.”",
+      "icon": "bi-people-fill"
+    },
+    {
+      "id": "fact-5",
+      "title": "Economic Role",
+      "description": "It serves as Northern Mindanao’s main center for trade, education, and transportation.",
+      "icon": "bi-building-fill"
     }
   ]
 }

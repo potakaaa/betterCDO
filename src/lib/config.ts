@@ -65,6 +65,10 @@ export function getLGUName(site: SiteConfig): string {
   return site.lguType === 'province' ? site.province : site.municipality;
 }
 
+export function getLGUNickname(site: SiteConfig): string {
+  return site.nickname || getLGUName(site);
+}
+
 /**
  * Get the full location string
  * - For municipality: "Municipality, Province"
@@ -95,7 +99,7 @@ export function getOfficialsConfig(): OfficialsConfig {
  * Get the subdivisions config with proper typing
  */
 export function getSubdivisionsConfig(): SubdivisionsConfig {
-  return subdivisionsConfig as SubdivisionsConfig;
+  return subdivisionsConfig as unknown as SubdivisionsConfig;
 }
 
 /**

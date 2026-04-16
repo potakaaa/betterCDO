@@ -6,6 +6,7 @@ import {
   getSiteConfig,
   getLGUTypeLabels,
   getLGUName,
+  getLGUNickname,
   getTranslationOverrides,
 } from '@/lib/config';
 
@@ -23,7 +24,7 @@ const baseTranslations: Record<string, Record<string, string>> = {
     "nav-contact": "Contact",
 
     // Hero Section - uses template variables
-    "hero-welcome": "Welcome to Better{{lguName}}.org",
+    "hero-welcome": "Welcome to Better{{lguNickname}}.org",
     "hero-subtitle": "Access government services, information, and resources for the people of {{municipality}}, {{province}}.",
     "hero-find-service": "Find a Service",
 
@@ -119,7 +120,7 @@ const baseTranslations: Record<string, Record<string, string>> = {
     "nav-contact": "Makipag-ugnayan",
 
     // Hero Section
-    "hero-welcome": "Maligayang Pagdating sa Better{{lguName}}.org",
+    "hero-welcome": "Maligayang Pagdating sa Better{{lguNickname}}.org",
     "hero-subtitle": "I-access ang mga serbisyo ng pamahalaan, impormasyon, at mga mapagkukunan para sa mga mamamayan ng {{municipality}}, {{province}}.",
     "hero-find-service": "Maghanap ng Serbisyo",
 
@@ -328,6 +329,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Get config values for interpolation
   const siteConfig = getSiteConfig();
   const currentLguName = getLGUName(siteConfig);
+  const currentLguNickname = getLGUNickname(siteConfig);
   const currentLabels = getLGUTypeLabels(siteConfig.lguType);
   const fullLocation = getFullLocation(siteConfig);
   const translationOverrides = getTranslationOverrides();
@@ -335,6 +337,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Memoize the default variables for interpolation
   const defaultVariables = useMemo(() => ({
     lguName: currentLguName,
+    lguNickname: currentLguNickname,
     municipality: siteConfig.municipality,
     province: siteConfig.province,
     region: siteConfig.region,
@@ -345,7 +348,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     deptPrefix: currentLabels.deptPrefix,
     legislativeBody: currentLabels.legislativeBody,
     fullLocation,
-  }), [currentLguName, siteConfig, currentLabels, fullLocation]);
+  }), [currentLguName, currentLguNickname, siteConfig, currentLabels, fullLocation]);
 
   // Merge base translations with overrides
   const translations = useMemo(() => {

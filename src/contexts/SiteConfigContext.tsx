@@ -22,6 +22,7 @@ import {
   getLGUName,
   getFullLocation,
   configHelpers,
+  getLGUNickname,
 } from '@/lib/config';
 
 interface SiteConfigContextType {
@@ -36,6 +37,7 @@ interface SiteConfigContextType {
   // Derived values
   lguType: LGUType;
   lguName: string;
+  lguNickname: string;
   fullLocation: string;
   labels: LGUTypeLabels;
 
@@ -74,6 +76,7 @@ export function SiteConfigProvider({ children }: { children: ReactNode }) {
     const statistics = getStatisticsConfig();
     const labels = getLGUTypeLabels(site.lguType);
     const lguName = getLGUName(site);
+    const lguNickname = getLGUNickname(site);
     const fullLocation = getFullLocation(site);
 
     return {
@@ -88,6 +91,7 @@ export function SiteConfigProvider({ children }: { children: ReactNode }) {
       // Derived values
       lguType: site.lguType,
       lguName,
+      lguNickname,
       fullLocation,
       labels,
 

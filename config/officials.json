@@ -1,22 +1,145 @@
 {
   "executive": [
     {
-      "id": "governor",
-      "name": "",
-      "position": "governor",
-      "title": "Provincial Governor",
-      "email": "",
-      "phone": ""
+      "id": "mayor",
+      "name": "Rolando A. Uy",
+      "position": "mayor",
+      "title": "City Mayor",
+      "email": "citymayor@cagayandeoro.gov.ph",
+      "phone": "(+63) 965 667 9604"
     },
     {
-      "id": "vice-governor",
-      "name": "",
-      "position": "vice_governor",
-      "title": "Provincial Vice Governor",
-      "email": "",
-      "phone": ""
+      "id": "vice-mayor",
+      "name": "Jocelyn B. Rodriguez",
+      "position": "vice_mayor",
+      "title": "City Vice Mayor",
+      "email": "cdeovmoffice@gmail.com",
+      "phone": "(088) 565-0568"
     }
   ],
-  "legislative": [],
-  "departments": []
+  "legislative": [
+    {
+      "id": "councilor-1",
+      "name": "Desiree Ann M. Dahino",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-2",
+      "name": "Roger G. Abaday",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-3",
+      "name": "Juancho R. Pascual",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-4",
+      "name": "Agapito Eriberto G. Suan",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-5",
+      "name": "George Christopher Q. Goking",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-6",
+      "name": "Moreno Y. Daba IV",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-7",
+      "name": "Imee Rose P. Moreno",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-8",
+      "name": "Yevonna Yacine B. Emano",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-9",
+      "name": "Maximo T. Rodriguez III",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-10",
+      "name": "Paolo Nicolo Gaane",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-11",
+      "name": "Joyleen Mercedes L. Balaba",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-12",
+      "name": "Yan Lam S. Lim",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-13",
+      "name": "Enrico D. Salcedo",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-14",
+      "name": "Gilda O. Go",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-15",
+      "name": "Edgar S. Cabanlas",
+      "position": "sb_member",
+      "title": "City Councilor"
+    },
+    {
+      "id": "councilor-16",
+      "name": "Datu Roberto P. Cabaring",
+      "position": "ipmr",
+      "title": "Indigenous Peoples’ Representative"
+    },
+    {
+      "id": "councilor-17",
+      "name": "Marlo L. Tabac",
+      "position": "liga_president",
+      "title": "Liga ng mga Barangay President"
+    },
+    {
+      "id": "councilor-18",
+      "name": "Kenneth John D. Sacala",
+      "position": "sk_president",
+      "title": "SK Federation President"
+    }
+  ],
+
+  "departments": [
+    {
+      "id": "dept-city-information",
+      "name": "City Information Office",
+      "head": "Jade A. Adeser",
+      "description": "Handles public communication and information dissemination."
+    },
+    {
+      "id": "dept-cswd",
+      "name": "City Social Welfare and Development Department",
+      "head": "Anecia C. Tongson",
+      "description": "Leads social welfare and development services."
+    }
+  ]
 }
